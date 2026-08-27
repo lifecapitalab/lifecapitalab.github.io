@@ -64,8 +64,6 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:#EAE4D8;colo
 .dots i{width:5px;height:5px;border-radius:50%;background:var(--ink);opacity:.2}
 .dots i.on{opacity:.9;height:14px;border-radius:3px;background:var(--accent)}
 .dots.light i{background:#fff}
-.cv2 .dots i{background:#fff;opacity:.55}
-.cv2 .dots i.on{background:var(--accent);opacity:1}
 .swipe{position:absolute;bottom:34px;right:16px;background:var(--ink);color:#fff;font-size:12px;font-weight:700;border-radius:20px;padding:6px 12px;z-index:5;letter-spacing:1px}
 .pslot{background-size:cover;background-position:center;cursor:pointer;position:relative;overflow:hidden}
 .pslot .pimg{position:absolute;pointer-events:none;display:block;max-width:none;max-height:none}
@@ -81,36 +79,59 @@ body[data-font="serif"] .s-ls h4,
 body[data-font="serif"] .s-bars h4,
 body[data-font="serif"] .s-cmp h4,
 body[data-font="serif"] .s-stat .lab,
-body[data-font="serif"] .cvF .line,
-body[data-font="serif"] .cv2 h3,
+body[data-font="serif"] .cvB .line,
+body[data-font="serif"] .cvB h3,
 body[data-font="serif"] .s-q .tx{font-family:'Noto Serif TC',serif;letter-spacing:2px}
 .kick{display:inline-block;background:var(--ink);color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;padding:4px 10px;border-radius:3px}
-/* ---- 封面版型 ---- */
-/* ---- 滿版照片封面（layout 1/3/4：照片鋪滿整張，文字壓在漸層暗部）---- */
-.cvF .pslot{position:absolute;inset:0}
-.cvF .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,15,10,.08) 22%,rgba(22,15,10,.52) 55%,rgba(22,15,10,.93) 100%);z-index:1;pointer-events:none}
-.cvF .ct{position:absolute;left:24px;right:24px;bottom:54px;z-index:2;pointer-events:none}
-.cvF .ct [contenteditable]{pointer-events:auto}
-.cvF .kick{background:var(--accent);margin-bottom:12px}
-.cvF h3{color:#fff;font-size:34px;font-weight:900;line-height:1.35;letter-spacing:1px;text-shadow:0 2px 14px rgba(0,0,0,.5)}
-.cvF h3 em{font-style:normal;color:var(--accent2)}
-.cvF .sub{color:rgba(255,255,255,.9);font-size:14.5px;margin-top:12px;font-weight:500;text-shadow:0 1px 6px rgba(0,0,0,.5)}
-.cvF.c3 .ct{text-align:center;bottom:66px}
-.cvF.c3 .qm{width:34px;height:3px;background:var(--accent2);font-size:0;margin-bottom:16px;border-radius:2px}
-.cvF.c3 h3{font-size:30px}
-.cvF.c3 .pname{color:rgba(255,255,255,.75);font-size:12px;margin-top:12px;letter-spacing:1.5px}
-.cvF.c4 .line{display:inline-block;font-size:25px;font-weight:900;line-height:1.3;background:rgba(255,253,246,.96);padding:8px 14px;box-shadow:0 3px 10px rgba(0,0,0,.3);margin-top:10px;color:var(--ink)}
-.cvF.c4 .line.acc{background:var(--accent);color:#fff}
-.cvF.c4 .l1{transform:rotate(-1.5deg)}
-.cvF.c4 .l2{transform:rotate(1deg)}
-.cvF.c4 .l3{transform:rotate(-1deg)}
-/* ---- 上照片下文字封面（layout 2）---- */
-.cv2 .pslot{position:absolute;top:0;left:0;right:0;height:62%}
-.cv2 .low{position:absolute;left:0;right:0;bottom:0;height:38%;background:var(--bg);padding:16px 24px}
-.cv2 .kick{background:var(--accent);border-radius:0 8px 8px 0;position:absolute;top:-14px;left:0}
-.cv2 h3{font-size:23px;font-weight:900;line-height:1.42;margin-top:10px}
-.cv2 h3 em{font-style:normal;background:linear-gradient(transparent 62%,var(--accent2) 62%)}
-.cv2 .sub{font-size:14px;color:var(--ink2);margin-top:8px}
+/* ---- 封面版型：紙底 + 照片區 + 文字區，兩區永遠不重疊，臉不會被字壓到 ---- */
+.cvB{position:absolute;inset:0;background:var(--bg)}
+.cvB .pslot{position:absolute}
+.cvB .ct{position:absolute;z-index:2;pointer-events:none}
+.cvB .ct [contenteditable]{pointer-events:auto}
+.cvB .kick{background:var(--accent);margin-bottom:11px}
+.cvB h3{font-size:28px;font-weight:900;line-height:1.36;letter-spacing:1px;color:var(--ink)}
+.cvB h3 em{font-style:normal;color:var(--accent)}
+.cvB .sub{font-size:13.5px;color:var(--ink2);margin-top:11px;font-weight:500;line-height:1.62}
+.cvB .edge{position:absolute;left:0;right:0;height:5px;background:var(--accent);z-index:3}
+/* c1：文字在上，照片在下 */
+.cvB.c1 .ct{left:26px;right:26px;top:38px}
+.cvB.c1 .pslot{left:0;right:0;bottom:0;height:46%}
+.cvB.c1 .edge{bottom:46%}
+/* c2：照片在上，文字在下 */
+.cvB.c2 .pslot{left:0;right:0;top:0;height:56%}
+.cvB.c2 .edge{top:56%}
+.cvB.c2 .ct{left:26px;right:26px;top:60%}
+.cvB.c2 h3{font-size:24px}
+.cvB.c2 h3 em{color:var(--ink);background:linear-gradient(transparent 62%,var(--accent2) 62%)}
+/* c3：左右分割，照片在左、文字在右 */
+.cvB.c3{background:var(--paper)}
+.cvB.c3 .pslot{left:0;top:0;bottom:0;width:49%}
+.cvB.c3 .edge{left:49%;top:0;bottom:0;right:auto;width:4px;height:auto}
+.cvB.c3 .ct{left:54%;right:22px;top:50%;transform:translateY(-50%)}
+.cvB.c3 h3{font-size:23px;line-height:1.42}
+.cvB.c3 .sub{font-size:12.5px;margin-top:10px}
+.cvB.c3 .qm{width:26px;height:3px;background:var(--accent);margin-bottom:14px;border-radius:2px}
+.cvB.c3 .pname{font-size:11px;color:var(--ink2);margin-top:14px;letter-spacing:1.5px}
+/* c4：手寫貼紙在上，照片在下 */
+.cvB.c4 .ct{left:24px;right:24px;top:34px}
+.cvB.c4 .pslot{left:0;right:0;bottom:0;height:44%}
+.cvB.c4 .edge{bottom:44%}
+.cvB.c4 .line{display:inline-block;font-size:23px;font-weight:900;line-height:1.3;background:var(--ink);color:#fff;padding:7px 13px;box-shadow:0 3px 9px rgba(0,0,0,.18);margin-top:9px}
+.cvB.c4 .line.acc{background:var(--accent);color:#fff}
+.cvB.c4 .l1{transform:rotate(-1.5deg)}
+.cvB.c4 .l2{transform:rotate(1deg)}
+.cvB.c4 .l3{transform:rotate(-1deg)}
+/* c5：拍立得／便條紙 */
+.cvB.c5{background:var(--paper)}
+.cvB.c5 .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(42,36,30,.05) 1px,transparent 1px);background-size:100% 27px;z-index:0}
+.cvB.c5 .ct{left:26px;right:26px;top:34px;z-index:2}
+.cvB.c5 .memo{width:30px;height:4px;background:var(--accent);margin-bottom:16px}
+.cvB.c5 h3{font-size:25px;line-height:1.44}
+.cvB.c5 .sub{font-size:12.5px;margin-top:10px}
+.cvB.c5 .polar{position:absolute;left:50%;bottom:44px;width:246px;background:#fff;padding:9px 9px 32px;box-shadow:0 7px 20px rgba(0,0,0,.17);transform:translateX(-50%) rotate(-2.5deg);z-index:1}
+.cvB.c5 .polar .pslot{position:relative;left:auto;right:auto;top:auto;bottom:auto;width:100%;height:163px}
+.cvB.c5 .polar .cap{position:absolute;left:0;right:0;bottom:9px;text-align:center;font-size:11.5px;color:var(--ink2);letter-spacing:1.5px}
+.cvB.c5 .swipe{bottom:10px;right:12px}
 /* ---- 內頁版型 ---- */
 /* 品牌人像側欄：一次設定，自動套用到觀念頁與金句頁 */
 .hero{position:absolute;inset:0;z-index:-1;overflow:hidden}
@@ -350,7 +371,7 @@ ig:[
 {t:'st',kk:'換個角度看',big:'平安時你覺得它沒用，<br>出事時它突然有用。<br><u>這種東西，就叫保險。</u>',bd:'你繳的從來不是「沒用到的錢」，是這十年來，全家每一個睡得安穩的晚上。'},
 {t:'end',q:'你也曾覺得<br>「保費白繳了」嗎？',sub2:'留言跟我聊聊你的想法，我都會回 👇'}],
 fbCards:[
-{t:'cover',layout:3,title:'用不到，<br>才是<em>最好的保險</em>。',sub:'一個讓我的客戶當場愣住的問題 →',pname:'放你的生活照'},
+{t:'cover',layout:2,title:'用不到，<br>才是<em>最好的保險</em>。',sub:'一個讓我的客戶當場愣住的問題 →',pname:'放你的生活照'},
 {t:'cmp',h:'滅火器與保險，是同一種東西',a:{hh:'滅火器沒用到',it:'＝家裡十年沒失火\n你不會說它浪費錢\n你會說「還好沒事」'},b:{hh:'保險沒用到',it:'＝全家十年都平安\n那為什麼要說\n「白繳了」呢？'}},
 {t:'st',kk:'今天想說的是',big:'你繳的不是<br>「沒用到的錢」，<br>是<em>十年安穩的晚上</em>。',bd:'敢背房貸、敢生小孩、敢放手拚事業的那份底氣，其實你天天都在用。'},
 {t:'end',q:'你的保單<br>躺在抽屜幾年了？',sub2:'留言告訴我數字，最久的我送他一次免費保單健檢 😄'}],
@@ -406,7 +427,7 @@ ig:[
 {t:'st',kk:'更危險的是',big:'把這種心態放到醫療險：<br>健康時嫌浪費，<br>生病後——<em>買不到了</em>。',bd:'防疫保單可以讓你這樣來回玩，醫療險不行。體況一變，保險公司隨時可以說不。'},
 {t:'end',q:'等你確定用得到的那天，<br>就是買不到的那天。',sub2:'當年有搶防疫保單的，留言「+1」，我想看看多少人 😄'}],
 fbCards:[
-{t:'cover',layout:2,kicker:'保險觀念',title:'疫情穩定：想退保。<br>疫情爆發：<em>搶投保</em>。',sub:'我們都當過這種人，包括我朋友'},
+{t:'cover',layout:3,kicker:'保險觀念',title:'疫情穩定：想退保。<br>疫情爆發：<em>搶投保</em>。',sub:'我們都當過這種人，包括我朋友'},
 {t:'q',tx:'等你確定用得到的那天，<br>就是<em>買不到的那天</em>。',at:'保險最殘忍也最公平的規則'},
 {t:'st',kk:'防疫保單教我們的事',big:'保險是<u>健康的時候</u><br>才買得到的東西。',bd:'防疫保單可以退了再買、買了再退。但醫療險不行——體況一變，門就關了。這是兩種完全不同的遊戲。'},
 {t:'end',q:'你的醫療險，<br>是幾歲時的你買的？',sub2:'分享給當年一起排隊的朋友，順便檢查一下彼此的保障 ✈️'}],
@@ -452,7 +473,7 @@ fb:`「欸，防疫保單可以退嗎？」
 /* ---------- A3 ---------- */
 {id:'A3',theme:'A',aud:'30-45歲・理性知識型（男性居多）',title:'孫子兵法早就看懂保險',note:'切入點：古人智慧，知識型最容易被收藏',
 ig:[
-{t:'cover',layout:3,title:'2500年前的孫子，<br>早就看懂<em>保險</em>。',sub:'一句話，講完風險管理的本質 →',pname:'我的讀書筆記'},
+{t:'cover',layout:5,title:'2500年前的孫子，<br>早就看懂<em>保險</em>。',sub:'一句話，講完風險管理的本質 →',pname:'我的讀書筆記'},
 {t:'q',tx:'「無恃其不來，<br>恃吾有以待也。」',at:'──《孫子兵法·九變篇》'},
 {t:'st',kk:'翻成白話文',big:'不要賭敵人不會來，<br>要靠<u>自己準備好了</u><br>在等他。',bd:'孫子講的是打仗。但把「敵人」換成意外和疾病，一個字都不用改。'},
 {t:'st',kk:'殘酷但真實',big:'意外跟疾病，<br><em>不會先寄邀請函</em>。',bd:'它不挑你方便的日子，不等你存夠錢，更不會看你最近過得順不順。它只問一件事：你準備好了沒？'},
@@ -510,7 +531,7 @@ ig:[
 {t:'st',kk:'說白了',big:'你可以討厭保費。<br>但沒有人<br><em>拒絕得了醫療費</em>。',bd:'這不是恐嚇，是每天在醫院繳費機前排隊的日常。'},
 {t:'end',q:'你選哪一張帳單？',sub2:'留言「A」或「B」，我想看看大家怎麼選 👇'}],
 fbCards:[
-{t:'cover',layout:3,title:'保費是你挑日子繳，<br>醫療費是<em>它挑日子收</em>。',sub:'昨天在醫院繳費機前，看懂了這句話',pname:'放你的生活照'},
+{t:'cover',layout:2,title:'保費是你挑日子繳，<br>醫療費是<em>它挑日子收</em>。',sub:'昨天在醫院繳費機前，看懂了這句話',pname:'放你的生活照'},
 {t:'st',kk:'在繳費機前面',big:'排我前面的先生，<br>刷了<em>三次卡</em>。',bd:'第一次餘額不足，換卡再刷，最後打電話：「先幫我轉十萬過來。」整條走廊都聽見了。'},
 {t:'cmp',h:'人生只有兩種帳單',a:{hh:'A・保費',it:'金額固定・日子自己挑\n繳的時候你好好的'},b:{hh:'B・醫療費',it:'金額未知・日子它挑\n繳的時候你倒下了'}},
 {t:'end',q:'如果只能選一張，<br>你選 A 還是 B？',sub2:'留言告訴我，順便說說為什麼 👇'}],
@@ -553,7 +574,7 @@ fb:`昨天在醫院的繳費機前面，排我前面的先生刷了三次卡。
 /* ---------- B2 ---------- */
 {id:'B2',theme:'B',aud:'35-45歲・有房貸的雙薪家庭',title:'你不買保險，風險誰扛？',note:'切入點：風險轉嫁＋房貸場景，最貼近成交客群',
 ig:[
-{t:'cover',layout:1,kicker:'雙薪家庭必看',title:'如果你不買保險，<br><em>誰來承擔風險？</em>',sub:'先說答案：那個人就是你自己。'},
+{t:'cover',layout:3,kicker:'雙薪家庭必看',title:'如果你不買保險，<br><em>誰來承擔風險？</em>',sub:'先說答案：那個人就是你自己。'},
 {t:'stat',kk:'一個真實的家',num:'970萬',lab:'房貸餘額，還剩 23 年。',bd:'夫妻各繳一半，日子過得剛剛好。「剛剛好」的意思是：這個家的一切，都是用兩份收入設計的。這就是風險所在。',src:'客戶真實案例・已去識別化'},
 {t:'ls',kk:'如果一份薪水倒下',h4:'這些東西不會跟著暫停：',items:[{n:'01',x:'房貸不會暫停，銀行照扣'},{n:'02',x:'小孩的學費、安親班不會暫停'},{n:'03',x:'會暫停的，只有收入'}]},
 {t:'st',kk:'保險真正在做的事',big:'把「扛不起的巨大風險」<br>換成<u>「扛得起的小小保費」</u>。',bd:'從保單生效那一秒開始，承擔風險的人就不是你了，是保險公司。這叫風險轉嫁。'},
@@ -611,7 +632,7 @@ fb:`970萬，23年。
 /* ---------- B3 ---------- */
 {id:'B3',theme:'B',aud:'30-50歲・精打細算的比價型',title:'省下保費，賭上全部',note:'切入點：莊子賭局思維，打「愛省小錢」的人',
 ig:[
-{t:'cover',layout:3,title:'省下保費，<br>你贏了<em>小錢</em>，<br>賭上<em>全部</em>。',sub:'有些賭局，你天生輸不起 →',pname:'風險思維系列'},
+{t:'cover',layout:5,title:'省下保費，<br>你贏了<em>小錢</em>，<br>賭上<em>全部</em>。',sub:'有些賭局，你天生輸不起 →',pname:'風險思維系列'},
 {t:'st',kk:'莊子早就說過',big:'用瓦片賭，輕鬆自在；<br>用黃金賭，<br><em>心慌到無法思考</em>。',bd:'《莊子》：「以瓦注者巧，以黃金者㱪。」賭注一旦大到輸不起，人就失去平常心了。'},
 {t:'st',kk:'風險是相對的',big:'有一萬塊的人賭一百，<br>不痛不癢。<br>只有一百塊的人賭一百，<br><u>是傾家蕩產</u>。',bd:'同樣的賭注，不同的人生。風險大小，永遠取決於你輸不輸得起。'},
 {t:'cmp',h:'「不買保險」這場賭的賠率表',a:{hh:'賭贏了',it:'省下每年幾萬塊保費\n感覺自己很精明'},b:{hh:'賭輸了',it:'醫療費看護費自己扛\n存款、房子、家人人生\n一起賠進去'}},
@@ -729,14 +750,14 @@ fb:`彩券行永遠不缺客人。這件事我想了很久。
 /* ---------- C2 ---------- */
 {id:'C2',theme:'C',aud:'30-50歲・「我身體很好」的鐵齒型',title:'不買保險的人，太樂觀了',note:'切入點：自利偏誤＋數據，理性打法',
 ig:[
-{t:'cover',layout:2,kicker:'心理學 × 保險',title:'打死不買保險的人，<br>通常不是沒錢，<br>是<em>太樂觀</em>。',sub:'心理學研究給出了具體數字 →'},
+{t:'cover',layout:3,kicker:'心理學 × 保險',title:'打死不買保險的人，<br>通常不是沒錢，<br>是<em>太樂觀</em>。',sub:'心理學研究給出了具體數字 →'},
 {t:'bars',kk:'心理學實驗數據',h4:'我們對機率，有多「自我感覺良好」？',bars:[{label:'對好事發生的預測',val:'高估 15%',pct:52},{label:'對壞事發生的預測',val:'低估 20%',pct:68}],note:'心理學叫「自利偏誤」：好事都輪得到我，壞事都是別人的事。這是大腦的出廠設定。',src:'來源：樂觀偏誤（Optimism Bias）心理學研究'},
 {t:'ls',kk:'自利偏誤的日常',h4:'聽起來熟悉嗎？',items:[{n:'01',x:'「保險很重要，但用到的一定是別人」'},{n:'02',x:'「癌症很可怕，但那個人不會是我」'},{n:'03',x:'「我身體很好，不用啦」'}]},
 {t:'st',kk:'最經典的例子',big:'每個抽菸的人都知道<br>可能得肺癌，<br>但<u>「那個人一定不是我」</u>。',bd:'然後點起下一根。你看，知道風險，跟相信風險會發生在自己身上，是兩件事。'},
 {t:'q',tx:'不是不會發生，<br>是<em>還沒發生</em>。',at:'現在健康，不代表以後健康'},
 {t:'end',q:'誠實回答：1-10分，<br>你的樂觀幾分？',sub2:'留言你的分數。8分以上的，我們特別需要聊聊 😄'}],
 fbCards:[
-{t:'cover',layout:3,title:'「保險很重要，<br>但用到的<br>一定是<em>別人</em>。」',sub:'你是不是也偷偷這樣想過？',pname:'放你的生活照'},
+{t:'cover',layout:5,title:'「保險很重要，<br>但用到的<br>一定是<em>別人</em>。」',sub:'你是不是也偷偷這樣想過？',pname:'放你的生活照'},
 {t:'st',kk:'心理學研究',big:'好事機率高估15%，<br>壞事機率低估20%。<br>這叫<u>自利偏誤</u>。',bd:'我們天生把好運歸自己、壞運歸別人。不是你的錯，是大腦替我們裝的濾鏡——但濾鏡不會改變機率。'},
 {t:'q',tx:'新聞裡的意外<br>我們都當<em>故事</em>看，<br>直到自己成為當事人。',at:'故事沒有旁白，也不能轉台'},
 {t:'end',q:'有底氣的樂觀，才叫樂觀。<br>沒底氣的，只是還沒輪到。',sub2:'留言你的樂觀分數（1-10），我很好奇 👇'}],
@@ -851,7 +872,7 @@ const GEN_POSTS=[
 /*__GEN__*/
 {id:'T04',cat:'時事',theme:'G',aud:'單一薪水的上班族・想增加副收入的人・被物價壓到的雙薪家庭',title:'關稅在打，帳單寄到你家',note:'8/27 時事特別篇・立場中立・僅引公開報導',
 ig:[
-{t:'cover',layout:4,kicker:'時事・貿易戰開打',lines:[{x:'兩國互打關稅，',acc:false},{x:'帳單寄給誰？',acc:true}],sub:'總理自己講了那句最誠實的話 →'},
+{t:'cover',layout:5,title:'兩國互打關稅，<br><em>帳單寄給誰？</em>',sub:'總理自己講了那句最誠實的話 →',pname:'賣場隨手拍'},
 {t:'st',kk:'新聞只講 10 秒',big:'加拿大反擊，<br>規模約<em>200億美元</em>。',bd:'超過 700 項美國商品被課 15% 到 50% 的關稅，9 月 8 日生效，鋼鋁加到 50%。同時追加 75 億美元支援受衝擊的企業與勞工。'},
 {t:'q',tx:'這會提高成本，<br>也會<em>減少選擇</em>。',at:'加拿大總理談反制關稅時的公開發言'},
 {t:'st',kk:'翻成白話',big:'上面在角力，<br>帳單<u>寄到你家</u>。',bd:'關稅是誰付？名義上是進口商，實際上一層一層轉嫁到貨架上。這件事跟政治立場無關——不管誰對誰錯，日用品變貴這件事會照樣發生。'},
@@ -860,7 +881,7 @@ ig:[
 {t:'ls',kk:'長按保存 🔖',h4:'漲價時代・我能控制的五件事',items:[{n:'01',x:'收入來源不只一個'},{n:'02',x:'固定支出砍掉一項不必要的'},{n:'03',x:'預備金抓 6 個月不是 3 個月'},{n:'04',x:'保障做滿，別讓意外變財務危機'},{n:'05',x:'資產別全押同一個市場'}]},
 {t:'end',q:'留言「分散」',sub2:'我私訊你互動版《漲價時代・五件可控的事》，每一則都會回 👇'}],
 fbCards:[
-{t:'cover',layout:1,kicker:'寫給只有一份薪水的你',title:'關稅戰開打，<br>誰在<em>付錢</em>？',sub:'名義上是進口商，實際上是貨架 →'},
+{t:'cover',layout:2,kicker:'寫給只有一份薪水的你',title:'關稅戰開打，<br>誰在<em>付錢</em>？',sub:'名義上是進口商，實際上是貨架 →'},
 {t:'st',kk:'新聞事實',big:'700 項商品，<br>最高<em>50%</em>。',bd:'加拿大宣布對約 200 億美元的美國商品課徵 15% 至 50% 關稅，9 月 8 日生效，同時追加 75 億美元支援受影響的企業與勞工。',src:'來源：CNBC 2026.08.25 公開報導'},
 {t:'q',tx:'你控制不了關稅，<br>但控制得了<br><em>自己依賴誰</em>。',at:'國家在做分散，個人也一樣'},
 {t:'end',q:'你的收入，<br>有第二個來源嗎？',sub2:'留言「+1」，長文帶你把五件可控的事做一遍 👇'}],
@@ -889,7 +910,7 @@ ig:[
 {t:'ls',kk:'長按保存 🔖',h4:'新藥時代・保單五問',items:[{n:'01',x:'癌症險是一次給付還是分項給付'},{n:'02',x:'重大傷病險保額夠不夠一年療程'},{n:'03',x:'實支的雜費上限是多少'},{n:'04',x:'健保外的自費藥物有沒有理賠空間'},{n:'05',x:'這張保單幾年沒重看了'}]},
 {t:'end',q:'留言「新藥」',sub2:'我私訊你互動版《新藥時代・保單五問》，每一則都會回 👇'}],
 fbCards:[
-{t:'cover',layout:1,kicker:'寫給保單多年沒動過的你',title:'癌症疫苗三期成功，<br>那<em>藥費</em>誰出？',sub:'好消息的背面，是一筆自費 →'},
+{t:'cover',layout:3,kicker:'寫給保單多年沒動過的你',title:'癌症疫苗三期成功，<br>那<em>藥費</em>誰出？',sub:'好消息的背面，是一筆自費 →'},
 {t:'st',kk:'新聞事實',big:'三期達標，<br>股價當天<em>大漲</em>。',bd:'Moderna 與默沙東的個人化癌症疫苗，1100 多位黑色素瘤患者的三期試驗達到主要目標。投資人反應熱烈——但對病人來說，真正的問題是：這種藥進到台灣、進到健保，要幾年？',src:'來源：CNBC 2026.08.19 公開報導'},
 {t:'q',tx:'新藥通過，<br>不等於<em>你用得起</em>。',at:'中間那段落差，叫做自費'},
 {t:'end',q:'你的癌症險，<br>是一次給付嗎？',sub2:'留言「+1」，長文帶你把保單五個問題問完 👇'}],
@@ -908,7 +929,7 @@ fbStory:[
 {t:'dm',note:'放你的自拍＋引導留言',h:'癌症險看不懂<br>可以直接問我',bar:'留言「新藥」我傳給你 💬'}]},
 {id:'T02',cat:'時事',theme:'G',aud:'上有老下有小的35-55歲・照顧者本人',title:'長照拖垮的，是照顧者的人生',note:'8/21 時事特別篇・莊重版・僅引公開報導，無當事人照片',
 ig:[
-{t:'cover',layout:2,kicker:'時事・一句話讓人沉默',title:'「我們工作，<br>是因為<em>不得不</em>，<br>不是因為想要。」',sub:'66歲媳婦，照顧99歲婆婆的第N年 →'},
+{t:'cover',layout:5,kicker:'時事・一句話讓人沉默',title:'「我們工作，<br>是因為<em>不得不</em>，<br>不是因為想要。」',sub:'66歲媳婦，照顧99歲婆婆的第N年 →'},
 {t:'st',kk:'新聞只講 10 秒',big:'99歲婆婆的長照，<br>每月燒掉<em>35萬</em>。',bd:'66歲的媳婦不敢退休，72歲的先生想退也退不了。他們算過：就算有一天不用再照顧了，兩人也只是回到財務的起點——而自己的老年，還沒開始準備。'},
 {t:'bars',kk:'缺口長這樣',h4:'每月照護支出 vs 保險給付',bars:[{label:'每月總開銷',val:'約1.1萬美元',pct:100},{label:'長照險給付',val:'約4200美元',pct:38}],note:'差額約 6800 美元，全部由家人扛。',src:'來源：商業內幕／FTNN 新聞網 2026.08 公開報導'},
 {t:'st',kk:'最扎心的一段',big:'保險額度<br><em>剩約一年</em>就用完。',bd:'買了長照險，也只撐了一段。真正的問題不是「有沒有保」，是保的額度撐不撐得過那條比想像更長的路。'},
@@ -918,7 +939,7 @@ ig:[
 {t:'ls',kk:'長按保存 🔖',h4:'照顧者・五個先問自己',items:[{n:'01',x:'父母的失能／長照保障，額度撐幾年'},{n:'02',x:'真的要照顧，誰請假？收入少多少'},{n:'03',x:'家裡有沒有「照顧預備金」這一筆'},{n:'04',x:'我自己的失能保障，做了沒'},{n:'05',x:'這些事，跟手足講開了嗎'}]},
 {t:'end',q:'留言「照顧」',sub2:'我私訊你互動版《照顧者風險自查表》，每一則都會回 👇'}],
 fbCards:[
-{t:'cover',layout:3,title:'長照拖垮的，<br>常常是照顧者。',sub:'99歲婆婆、66歲媳婦、72歲先生——三個人的晚年卡在一起',pname:'——今日國際新聞有感'},
+{t:'cover',layout:1,title:'長照拖垮的，<br>常常是照顧者。',sub:'99歲婆婆、66歲媳婦、72歲先生——三個人的晚年卡在一起',pname:'——今日國際新聞有感'},
 {t:'bars',kk:'新聞裡的數字',h4:'每月照護支出 vs 保險給付',bars:[{label:'每月總開銷',val:'約35.5萬台幣',pct:100},{label:'長照險給付',val:'約13.5萬台幣',pct:38}],note:'缺口每月約 22 萬，由家人承擔。',src:'來源：商業內幕／FTNN 新聞網 2026.08 公開報導'},
 {t:'st',kk:'最該記住的一句',big:'照顧的人沒有保障，<br><em>全家一起卡住</em>。',bd:'父母有保障，子女才有選擇：能請專業的人照顧、能繼續工作、能保住自己的退休。這不是孝不孝順的問題，是有沒有準備的問題。'},
 {t:'end',q:'家裡的長照這條路，<br>你算過嗎？',sub2:'留言「+1」，長文帶你把五個問題問完 👇'}],
@@ -947,7 +968,7 @@ ig:[
 {t:'ls',kk:'長按保存 🔖',h4:'進場前・三桶金檢查',items:[{n:'01',x:'輸不起的：6個月預備金先鎖好'},{n:'02',x:'輸不起的：醫療、失能保障做滿'},{n:'03',x:'等得起的：3年內用不到的錢才進場'},{n:'04',x:'進場方式：定期定額，不梭哈單壓'},{n:'05',x:'心態檢查：跌30%還睡得著才過關'}]},
 {t:'end',q:'留言「三桶」',sub2:'我私訊你互動版《睡得著投資・三桶金檢查》，每一則都會回 👇'}],
 fbCards:[
-{t:'cover',layout:3,title:'怕窮才炒股，<br>結果更窮。',sub:'這句話，該貼在每個人的下單APP上',pname:'——首爾 30歲上班族'},
+{t:'cover',layout:2,title:'怕窮才炒股，<br>結果更窮。',sub:'這句話，該貼在每個人的下單APP上',pname:'——首爾 30歲上班族'},
 {t:'st',kk:'兩個月的事',big:'8.6萬全押AI股，<br>剩<em>2.1萬</em>。',bd:'刪APP、帶便當、賣機車、掛精神科——韓股暴漲暴跌下，散戶的真實日常。錯不在投資，在他們把輸不起的錢全押了進去。',},
 {t:'q',tx:'輸不起的錢進市場，<br>漲跌就不是數字，<br>是<em>心跳</em>。',at:'先框住底線，才有資格談報酬'},
 {t:'end',q:'你進場的錢，<br>是哪一桶？',sub2:'留言「+1」，長文教你把錢分三桶再進場 👇'}],
@@ -966,7 +987,7 @@ fbStory:[
 {t:'dm',note:'放你的自拍＋引導留言',h:'不知道自己<br>是哪一桶的直接私我',bar:'留言「三桶」我傳給你 💬'}]},
 {id:'02',cat:'醫療實支',theme:'G',aud:'幫全家買保單的爸媽・30-45歲雙薪家庭',title:'開了刀，保險卻說不算手術？',note:'7/16 每日生成・原文已完全重寫',
 ig:[
-{t:'cover',layout:2,kicker:'理賠真實案例',title:'開了刀，保險公司卻說：<br><em>這不是手術</em>？',sub:'差一個健保代碼，理賠直接歸零 →'},
+{t:'cover',layout:3,kicker:'理賠真實案例',title:'開了刀，保險公司卻說：<br><em>這不是手術</em>？',sub:'差一個健保代碼，理賠直接歸零 →'},
 {t:'dlg',kk:'上個月的私訊',msgs:[{s:'l',x:'孩子拔阻生齒，麻醉、切開、縫合都來了，申請理賠居然被拒？'},{s:'r',x:'拒賠理由是什麼？'},{s:'l',x:'說卡到「健保3343」…那到底是什麼東西？'}]},
 {t:'st',kk:'重點一',big:'保單裡的「手術」<br>有<em>兩種寫法</em>。',bd:'一種沒有定義範圍，符合手術事實就有理賠空間；另一種把範圍鎖死——只認健保列出來的那幾串代碼。'},
 {t:'cmp',h:'兩種手術條款，差在哪',a:{hh:'沒有定義（廣義）',it:'條款不限範圍\n符合手術事實即可\n理賠空間最大'},b:{hh:'有定義（限縮）',it:'限「健保227」\n或「227＋3343」\n代碼不在列＝不賠'}},
@@ -976,7 +997,7 @@ ig:[
 {t:'ls',kk:'長按保存 🔖',h4:'手術理賠・自查五步驟',items:[{n:'01',x:'翻條款：手術有沒有「定義範圍」'},{n:'02',x:'有定義 → 看限227還是227＋3343'},{n:'03',x:'查「健保支付標準」找手術代碼'},{n:'04',x:'對照代碼在不在理賠範圍內'},{n:'05',x:'在 → 申請；不在 → 先別放棄，問我'}]},
 {t:'end',q:'留言「代碼」',sub2:'我私訊你互動版《手術賠不賠・自查地圖》，每一則都會回 👇'}],
 fbCards:[
-{t:'cover',layout:1,kicker:'寫給幫全家買保單的你',title:'孩子開了刀，<br>保險卻說<em>不算手術</em>？',sub:'先別罵保險公司，問題出在一行條款 →'},
+{t:'cover',layout:5,kicker:'寫給幫全家買保單的你',title:'孩子開了刀，<br>保險卻說<em>不算手術</em>？',sub:'先別罵保險公司，問題出在一行條款 →'},
 {t:'cmp',h:'你的保單是哪一種？',a:{hh:'廣義手術條款',it:'手術範圍沒定義\n開刀就有機會賠'},b:{hh:'限縮手術條款',it:'只認健保代碼\n227 / 227＋3343\n範圍外不賠'}},
 {t:'st',kk:'真實案例',big:'差一個代碼，<br>理賠<em>歸零</em>。',bd:'阻生齒手術（92016C）屬門診手術；保單只認開刀房手術（92201～92230）。麻醉、切開、縫合都做了，就差這一節。'},
 {t:'end',q:'你翻過自己保單的<br>手術條款嗎？',sub2:'留言「+1」，長文教你五分鐘自查賠不賠 👇'}],
@@ -1079,15 +1100,16 @@ function slideHTML(s,i,n){
   const _h=s._hero,_p=s._pos; s=pzDeep(s); s._hero=_h; s._pos=_p;
   let inner='';
   if(s.t==='cover'){
-    if(s.layout===2) inner=`<div class="cv2">${photoSlot()}<div class="low"><span class="kick" ${E}>${s.kicker||''}</span><h3 ${E}>${s.title}</h3><div class="sub" ${E}>${s.sub||''}</div></div>${wm(true)}<div class="swipe">往後滑 →</div>${dots(i,n)}</div>`;
-    else{
-      const v=s.layout===3?'c3':(s.layout===4?'c4':'c1');
-      let ct='';
-      if(v==='c3') ct=`<div class="qm"></div><h3 class="serif" ${E}>${s.title||''}</h3><div class="sub" ${E}>${s.sub||''}</div>${s.pname?`<div class="pname" ${E}>${s.pname}</div>`:''}`;
-      else if(v==='c4') ct=`<span class="kick" ${E}>${s.kicker||''}</span><div>${(s.lines||[{x:s.title||'',acc:true}]).map((l,k)=>`<div class="line ${l.acc?'acc':''} l${k+1}" ${E}>${l.x}</div>`).join('')}</div><div class="sub" ${E}>${s.sub||''}</div>`;
-      else ct=`<span class="kick" ${E}>${s.kicker||''}</span><h3 class="serif" ${E}>${s.title||''}</h3><div class="sub" ${E}>${s.sub||''}</div>`;
-      inner=`<div class="cvF ${v}">${photoSlot()}<div class="ov"></div><div class="ct">${ct}</div>${wm(true)}<div class="swipe">往後滑 →</div>${dots(i,n,true)}</div>`;
-    }
+    const v='c'+([1,2,3,4,5].includes(s.layout)?s.layout:1);
+    let ct='';
+    if(v==='c3') ct=`<div class="qm"></div><h3 class="serif" ${E}>${s.title||''}</h3><div class="sub" ${E}>${s.sub||''}</div>${s.pname?`<div class="pname" ${E}>${s.pname}</div>`:''}`;
+    else if(v==='c4') ct=`<span class="kick" ${E}>${s.kicker||''}</span><div>${(s.lines||[{x:s.title||'',acc:true}]).map((l,k)=>`<div class="line ${l.acc?'acc':''} l${k+1}" ${E}>${l.x}</div>`).join('')}</div><div class="sub" ${E}>${s.sub||''}</div>`;
+    else if(v==='c5') ct=`<div class="memo"></div><h3 class="serif" ${E}>${s.title||''}</h3><div class="sub" ${E}>${s.sub||''}</div>`;
+    else ct=`<span class="kick" ${E}>${s.kicker||''}</span><h3 class="serif" ${E}>${s.title||''}</h3><div class="sub" ${E}>${s.sub||''}</div>`;
+    const body = v==='c5'
+      ? `<div class="grid"></div><div class="ct">${ct}</div><div class="polar">${photoSlot()}<div class="cap" ${E}>${s.pname||'@lifecapitallab'}</div></div>`
+      : `${photoSlot()}<div class="edge"></div><div class="ct">${ct}</div>`;
+    inner=`<div class="cvB ${v}">${body}${wm()}<div class="swipe">往後滑 →</div>${dots(i,n)}</div>`;
   }
   else if(s.t==='st') inner=`<div class="s-st ${s._pos||'top'}">${wm()}<div class="tag"></div><div class="kk" ${E}>${s.kk||''}</div><div class="big" ${E}>${s.big}</div>${s.bd?`<div class="bd" ${E}>${s.bd}</div>`:''}${dots(i,n)}</div>`;
   else if(s.t==='dlg') inner=`<div class="s-dlg">${wm()}<div class="kk" ${E}>${s.kk||''}</div>${s.msgs.map(m=>`<div class="bub ${m.s}" ${E}>${m.x}</div>`).join('')}${dots(i,n)}</div>`;
