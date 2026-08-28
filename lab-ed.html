@@ -291,6 +291,31 @@ body[data-pal="navy"] .s-st.low .hero .hfade{background:linear-gradient(0deg,rgb
 .s-cmp.dark.v-table .tc.o .ic{color:var(--accent2)}
 .s-cmp.dark.v-arrow .arw{color:var(--accent2)}
 .s-cmp.dark.v-arrow .box.a{border-color:rgba(255,255,255,.3)}
+/* ---- 鉤子實驗室（七大魔法鉤子）---- */
+.hooklab{margin:14px 20px 4px;background:var(--paper);border-radius:14px;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.hooklab h5{font-size:13px;font-weight:900;letter-spacing:2px;color:var(--accent)}
+.hooklab .tip{font-size:12px;color:var(--ink2);margin:4px 0 11px;line-height:1.7}
+.hkrow{display:flex;flex-wrap:wrap;gap:8px}
+.hk{border:1px solid #D8CFC0;background:#fff;border-radius:10px;padding:8px 12px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:inherit;color:var(--ink);text-align:left;line-height:1.55;max-width:100%}
+.hk:hover{border-color:var(--accent)}
+.hk.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.hk b{display:block;font-size:10.5px;letter-spacing:1.5px;color:var(--accent);font-weight:900;margin-bottom:3px}
+.hk.on b{color:var(--accent2)}
+/* ---- Reels 口播腳本 ---- */
+.reels{margin:16px 20px;background:var(--paper);border-radius:16px;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.08)}
+.reels .rh{background:var(--ink);color:#fff;padding:13px 18px;display:flex;flex-wrap:wrap;gap:9px;align-items:center}
+.reels .rh b{font-size:14px;letter-spacing:1.5px}
+.reels .rh span{font-size:11.5px;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 11px;letter-spacing:.5px}
+.reels .rh .btn{margin-left:auto}
+.rrow{display:flex;border-bottom:1px dashed rgba(42,36,30,.16)}
+.rrow:last-of-type{border-bottom:none}
+.rt{flex:0 0 66px;padding:14px 8px 14px 18px;font-size:12px;font-weight:900;color:var(--accent);letter-spacing:.5px}
+.rb{flex:1 1 auto;padding:14px 18px 14px 0;min-width:0}
+.rlab{font-size:11px;font-weight:900;letter-spacing:2.5px;color:var(--ink2);margin-bottom:6px}
+.rsay{font-size:15.5px;line-height:1.9;font-weight:500}
+.rshot{font-size:12px;color:var(--ink2);margin-top:7px;line-height:1.65}
+.rfoot{background:var(--bg);padding:14px 18px;font-size:12.5px;color:var(--ink2);line-height:2}
+.rfoot b{color:var(--ink)}
 /* ---- 限時動態 9:16（1080×1920）---- */
 .sy{width:270px;height:480px;position:relative;background:linear-gradient(165deg,var(--paper),var(--bg) 45%,var(--accentSoft) 130%);overflow:hidden;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.12)}
 .sy .wm{top:12px;right:12px;font-size:10px}
@@ -940,6 +965,26 @@ fb:`古羅馬有一個流傳很久的習慣。
 const GEN_POSTS=[
 /*__GEN__*/
 {id:'T05',cat:'時事',theme:'G',aud:'有房貸的家庭・正在看房的人・買了儲蓄險想知道要不要動的人',title:'利率你猜不到，年期你選得到',note:'8/28 時事特別篇・僅引公開報導・非投資建議',
+form:'教知識・借痛點（痛點→製造期待→外行解法→內行解法→CTA）',
+hooks:[
+{h:'H1',n:'認知顛覆法',x:'大家都在等降息，市場賭的卻是升息'},
+{h:'H2',n:'數據錨定法',x:'30年期殖利率 5.31%，回到 2007 年'},
+{h:'H3',n:'命名技巧法',x:'房貸壓力測試，簽約前的五個數字'},
+{h:'H4',n:'條件觸發法',x:'如果你的房貸還剩 20 年以上，這篇你必須看'},
+{h:'H5',n:'精華提煉法',x:'看過上百份房貸試算，結論只有一句話'},
+{h:'H6',n:'觀念澄清法',x:'關於房貸利率，多數人誤會了一件事'},
+{h:'H7',n:'直接指令法',x:'簽房貸之前，先算這五個數字'}],
+reels:{form:'教知識・借痛點',hook:'H4 條件觸發法',shot:'定點口播＋字卡',len:'約 45 秒',
+rows:[
+{t:'0-3s',lab:'鉤子',say:'如果你的房貸還剩二十年以上，這支你一定要看完。',shot:'正面對鏡頭，手比出「2」，背景乾淨。字卡：房貸還剩20年以上？'},
+{t:'3-11s',lab:'痛點',say:'大部分人簽房貸只比一件事——月付多少。年期拉到最長，月付看起來最輕鬆，然後就簽下去了。',shot:'切到手翻合約、按計算機的特寫，聲音蓋過去'},
+{t:'11-17s',lab:'製造期待',say:'但年期拉長真正的代價，其實不是總利息變多。',shot:'切回正面，停半拍再講下一句。字卡：真正的代價是…'},
+{t:'17-26s',lab:'外行解法',say:'外行的做法是等，等利率降下來再說。問題是——長期利率不是央行說了算，是市場開價的，沒有人保證得了時間點。',shot:'口播＋字卡「利率你猜不到」'},
+{t:'26-40s',lab:'內行解法',say:'內行的做法是反過來：先做壓力測試，再決定年期。三個數字。第一，月付佔月收入幾成，超過三分之一就要小心。第二，升一碼，你的月付會多多少，算出實際金額。第三，繳完那一年你幾歲，如果落在退休之後，現在就要處理。',shot:'字卡 1、2、3 逐條跳出，語速稍快，每講完一項停半拍'},
+{t:'40-45s',lab:'CTA',say:'這三題你答不出來，就先別簽。留言「年期」，我把完整的五個數字傳給你。',shot:'正面看鏡頭，語速放慢，字卡：留言「年期」'}],
+keys:['年期','升一碼','寬限期','壓力測試'],
+cta:'留言「年期」→ 私訊互動版《房貸壓力測試・五個數字》',
+tags:'#房貸 #利率 #升息 #首購 #現金流 #理財 #人生資本'},
 ig:[
 {t:'cover',layout:4,kicker:'時事・聯準會新主席首秀',lines:[{x:'今晚一場演講，',acc:false},{x:'牽動你的房貸。',acc:true}],sub:'先說結論：利率你猜不到，年期你選得到 →'},
 {t:'st',kk:'新聞只講 10 秒',big:'聯準會新主席，<br>今晚<em>第一次開口</em>。',bd:'Warsh 五月接任，上任後兩次會議都維持利率不動。今晚是他第一次完整說明自己怎麼看經濟。'},
@@ -1290,6 +1335,43 @@ async function shootS(kind,i){
 window.dlOneS=(k,i)=>shootS(k,i).catch(e=>alert('下載失敗：'+e.message));
 window.dlAllS=async k=>{const p=ALLP()[cur];const arr=k==='igs'?p.igStory:p.fbStory;for(let i=0;i<arr.length;i++){await shootS(k,i);await new Promise(r=>setTimeout(r,500));}};
 
+/* ── 鉤子實驗室：七大魔法鉤子，點一下換封面標題 ── */
+function hookLab(p){
+  if(!p.hooks||!p.hooks.length)return '';
+  const on=(p.ig&&p.ig[0]&&p.ig[0]._hk);
+  return `<div class="hooklab"><h5>🪝 鉤子實驗室</h5><div class="tip">同一篇的七種開場，點一下直接換掉 IG 與 FB 的封面標題。挑「一秒看懂、又會想往下滑」的那個——好鉤子的三個標準：產生好奇、口語自然、國小六年級能懂。</div><div class="hkrow">${p.hooks.map((h,i)=>`<button class="hk ${on===i?'on':''}" onclick="pickHook(${i})"><b>${h.h}・${h.n}</b>${h.x}</button>`).join('')}</div></div>`;
+}
+window.pickHook=function(i){
+  const p=ALLP()[cur], h=p.hooks&&p.hooks[i]; if(!h)return;
+  [p.ig&&p.ig[0],p.fbCards&&p.fbCards[0]].forEach(cv=>{
+    if(!cv||cv.t!=='cover')return;
+    const parts=h.x.split('，').filter(Boolean);
+    if(cv.layout===4){
+      cv.lines = parts.length>1 ? parts.map((x,k)=>({x:x+(k<parts.length-1?'，':''),acc:k===parts.length-1})) : [{x:h.x,acc:true}];
+    }else{
+      cv.title = parts.length>1
+        ? parts.slice(0,-1).map(x=>x+'，').join('<br>')+'<br><em>'+parts[parts.length-1]+'</em>'
+        : h.x;
+    }
+    cv._hk=i;
+  });
+  render();
+};
+/* ── Reels 口播腳本 ── */
+function reelsHTML(p){
+  if(!p.reels)return '';
+  const r=p.reels;
+  return `<div class="reels">
+    <div class="rh"><b>🎬 Reels 口播腳本</b><span>腳本：${r.form}</span><span>鉤子：${r.hook}</span><span>拍法：${r.shot}</span><span>${r.len}</span><button class="btn ghost" onclick="copyReels()">📋 複製口播稿</button></div>
+    ${r.rows.map(x=>`<div class="rrow"><div class="rt">${x.t}</div><div class="rb"><div class="rlab">${x.lab}</div><div class="rsay" contenteditable="true" spellcheck="false">${x.say}</div><div class="rshot">🎥 ${x.shot}</div></div></div>`).join('')}
+    <div class="rfoot"><b>字幕重點字：</b>${(r.keys||[]).join('　')}<br><b>結尾 CTA：</b>${r.cta}<br><b>Hashtag：</b>${r.tags}</div>
+  </div>`;
+}
+window.copyReels=function(){
+  const rows=[...document.querySelectorAll('.reels .rrow')].map(el=>`[${el.querySelector('.rt').innerText}]${el.querySelector('.rlab').innerText}\n${el.querySelector('.rsay').innerText}`);
+  navigator.clipboard.writeText(rows.join('\n\n')).then(()=>alert('口播稿已複製 ✓'));
+};
+
 function stripHTML(slides,kind,label){
   const n=slides.length;
   markHero(slides);
@@ -1326,8 +1408,10 @@ function render(){
   <div class="posthead">
     <span class="chip">${p.cat?('類別 '+p.id+'：'+p.cat):('論點：'+(THEMES[p.theme]||THEMES.G).name)}</span><span class="chip aud">🎯 ${p.aud}</span>
     <h2>${p.id}｜${p.title} <button class="btn ghost" style="font-size:12px;padding:4px 10px;${isPosted?'':'border-color:#4a5d43;color:#4a5d43'}" onclick="togglePosted('${p.id}')">${isPosted?'↩ 取回主頁':'✓ 已發布，收進歷史'}</button></h2>
-    <p>${p.note}｜圖卡尺寸 1080×1350</p>
+    <p>${p.note}｜圖卡尺寸 1080×1350${p.form?'｜輪播腳本：'+p.form:''}</p>
   </div>
+  ${hookLab(p)}
+  ${reelsHTML(p)}
   ${stripHTML(p.ig,'ig','Instagram 版')}
   ${stripHTML(p.fbCards,'fb','Facebook 版')}
   ${p.igStory?stripStory(p.igStory,'igs','IG 限時動態・5步成交'):''}
