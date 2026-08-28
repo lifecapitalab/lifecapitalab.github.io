@@ -1386,9 +1386,7 @@ async function shootS(kind,i){
  guides.forEach(g=>g.style.visibility='hidden'); /* 虛線佔位框不輸出，位置留白給真貼紙 */
  try{
    const canvas=await html2canvas(el,{scale:4,useCORS:true,backgroundColor:(getComputedStyle(document.body).getPropertyValue('--bg')||'#F6F0E4').trim()});
-   const a=document.createElement('a');
-   a.download=`${ALLP()[cur].id}_${kind==='igs'?'IG限動':'FB限動'}_${i+1}.png`;
-   a.href=canvas.toDataURL('image/png');a.click();
+   await dlCanvas(canvas,`${ALLP()[cur].id}_${kind==='igs'?'IG限動':'FB限動'}_${i+1}.png`);
  }finally{guides.forEach(g=>g.style.visibility='')}
 }
 window.dlOneS=(k,i)=>shootS(k,i).catch(e=>alert('下載失敗：'+e.message));
@@ -1589,14 +1587,26 @@ $('#folInput').addEventListener('input',()=>document.querySelectorAll('[data-fol
 /* 色系 */
 document.querySelectorAll('.palbtn').forEach(b=>b.onclick=()=>{document.body.dataset.pal=b.dataset.pal;document.querySelectorAll('.palbtn').forEach(x=>x.classList.toggle('on',x===b))});
 /* 匯出 */
+/* 大圖用 blob 下載：data URL 太大時 Chrome 會放棄下載改成開新分頁 */
+function dlCanvas(canvas,name){
+  return new Promise((res,rej)=>{
+    canvas.toBlob(b=>{
+      if(!b){rej(new Error('圖片產生失敗'));return}
+      const url=URL.createObjectURL(b);
+      const a=document.createElement('a');
+      a.href=url;a.download=name;a.style.display='none';
+      document.body.appendChild(a);a.click();
+      setTimeout(()=>{a.remove();URL.revokeObjectURL(url);res()},1200);
+    },'image/png');
+  });
+}
 async function shoot(kind,i){
   const el=document.getElementById(kind+'sl'+i);
   const btns=el.querySelectorAll('.artbtn');
   btns.forEach(b=>b.style.display='none');
   try{
     const canvas=await html2canvas(el,{scale:3,useCORS:true,backgroundColor:(getComputedStyle(document.body).getPropertyValue('--bg')||'#F6F0E4').trim()});
-    const a=document.createElement('a');
-    a.download=`${ALLP()[cur].id}_${kind.toUpperCase()}_${i+1}.png`;a.href=canvas.toDataURL('image/png');a.click();
+    await dlCanvas(canvas,`${ALLP()[cur].id}_${kind.toUpperCase()}_${i+1}.png`);
   }finally{btns.forEach(b=>b.style.display='')}
 }
 window.dlOne=(kind,i)=>shoot(kind,i).catch(e=>alert('下載失敗：'+e.message));
