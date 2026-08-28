@@ -215,14 +215,12 @@ body[data-pal="navy"] .s-st.low .hero .hfade{background:linear-gradient(0deg,rgb
 .s-sm .lbl{position:absolute;font-size:12.5px;font-weight:900;color:var(--ink2);background:var(--paper);padding:4px 9px;border-radius:6px;box-shadow:0 2px 5px rgba(0,0,0,.08)}
 .s-sm .bd{font-size:15px;line-height:1.85;color:var(--ink2);margin-top:24px}
 /* ---- 內頁主題底圖（程式原創繪製，可一鍵切換）---- */
-.artbg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.artbg{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
 .artbg svg{width:100%;height:100%;display:block}
 .artbtn{position:absolute;left:8px;bottom:8px;z-index:9;border:none;cursor:pointer;background:rgba(42,36,30,.45);color:#fff;font-family:inherit;font-size:10px;font-weight:700;letter-spacing:.5px;border-radius:14px;padding:4px 9px;opacity:.32;transition:.2s}
 .sl:hover .artbtn{opacity:1}
 .dark .artbtn{background:rgba(255,255,255,.26)}
 .s-st,.s-ls,.s-cmp,.s-stat,.s-bars,.s-dlg,.s-sm{position:relative}
-.s-st>*,.s-ls>*,.s-cmp>*,.s-stat>*,.s-bars>*,.s-dlg>*,.s-sm>*{position:relative;z-index:1}
-.s-st .hero,.s-st .artbg,.s-ls .artbg,.s-cmp .artbg,.s-stat .artbg,.s-bars .artbg,.s-dlg .artbg,.s-sm .artbg{z-index:0}
 /* ---- 清單頁三種新骨架（打勾／時間軸／便條）---- */
 .s-ls.v-check .row{background:transparent;box-shadow:none;border-radius:0;border-bottom:1px dashed rgba(42,36,30,.18);padding:10px 4px;gap:14px;align-items:flex-start}
 .s-ls.v-check .row:nth-last-child(2){border-bottom:none}
@@ -1364,7 +1362,7 @@ function slideHTML(s,i,n,kind){
   else if(s.t==='bars') inner=`<div class="s-bars">${wm()}<div class="kk" ${E}>${s.kk||''}</div><h4 ${E}>${s.h4}</h4>${s.bars.map((b,k)=>`<div class="brow ${k%2?'alt':''}"><div class="bl" ${E}>${b.label}</div><div class="track"><div class="fill" style="width:${b.pct}%" ${E}>${b.val}</div></div></div>`).join('')}${s.note?`<div class="note" ${E}>${s.note}</div>`:''}<div class="src" ${E}>${s.src||''}</div>${dots(i,n)}</div>`;
   else if(s.t==='smile') inner=`<div class="s-sm">${wm()}<div class="kk" ${E}>${s.kk||''}</div><h4 ${E}>${s.h4||''}</h4><div class="arcbox"><div class="arc"></div><div class="lbl" style="left:4px;top:-24px" ${E}>高價開始扣 😐</div><div class="lbl" style="left:50%;transform:translateX(-50%);bottom:-8px;color:var(--accent)" ${E}>下跌＝便宜補貨區 😋</div><div class="lbl" style="right:4px;top:-24px" ${E}>回升收割 🎉</div></div><div class="bd" ${E}>${s.bd||''}</div>${dots(i,n)}</div>`;
   else if(s.t==='end') inner=`<div class="s-end">${photoSlot()}<div class="scrim"></div><div class="eb"><div class="thx" ${E}>看到這裡，謝謝你</div><div class="q" ${E}>${s.q}</div><div class="sub2" ${E}>${s.sub2||''}</div><div class="acts"><span>💬留言</span><span>🔖收藏</span><span>✈️分享</span></div></div><div class="fol" ${E} data-fol>${folTxt()}</div>${dots(i,n,true)}</div>`;
-  if(s.t!=='cover'&&s.t!=='end'&&kind) inner=inner.replace('>','>'+artLayer(s,kind,i)); /* 內頁鋪主題底圖 */
+  if(s.t!=='cover'&&s.t!=='end'&&kind&&!(s._hero&&heroActive())) inner=inner.replace('>','>'+artLayer(s,kind,i)); /* 內頁鋪主題底圖；已鋪真人照片的那張就不重疊 */
   if(s._hero&&heroActive()) inner=inner.replace('>','>'+heroLayer()); /* 插進版型根層第一位，文字自動浮在上面 */
   return inner;
 }
