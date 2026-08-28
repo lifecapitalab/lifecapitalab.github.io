@@ -202,6 +202,7 @@ body[data-pal="navy"] .s-st.low .hero .hfade{background:linear-gradient(0deg,rgb
 .s-stat{padding:52px 34px;position:relative;display:flex;flex-direction:column;justify-content:center;text-align:center;align-items:center}
 .s-stat .kk{font-size:12.5px;font-weight:700;letter-spacing:4px;color:var(--accent);margin-bottom:18px}
 .s-stat .num{font-family:'Noto Serif TC',serif;font-size:82px;font-weight:900;color:var(--accent);line-height:1.05}
+.s-stat .lab em{font-style:normal;color:var(--accent)}
 .s-stat .lab{font-size:20px;font-weight:900;line-height:1.8;margin-top:20px;letter-spacing:1px}
 .s-stat .bd{font-size:14px;line-height:2.1;color:var(--ink2);margin-top:22px;letter-spacing:.6px}
 .s-stat .src{position:absolute;bottom:30px;left:0;right:0;text-align:center;font-size:10.5px;color:var(--ink2);letter-spacing:.5px}
@@ -223,6 +224,73 @@ body[data-pal="navy"] .s-st.low .hero .hfade{background:linear-gradient(0deg,rgb
 .s-sm .arc{position:absolute;left:12px;right:12px;top:-50px;height:250px;border:7px solid var(--accent);border-color:transparent transparent var(--accent) transparent;border-radius:50%}
 .s-sm .lbl{position:absolute;font-size:12.5px;font-weight:900;color:var(--ink2);background:var(--paper);padding:4px 9px;border-radius:6px;box-shadow:0 2px 5px rgba(0,0,0,.08)}
 .s-sm .bd{font-size:15px;line-height:1.85;color:var(--ink2);margin-top:24px}
+/* ---- 清單頁三種新骨架（打勾／時間軸／便條）---- */
+.s-ls.v-check .row{background:transparent;box-shadow:none;border-radius:0;border-bottom:1px dashed rgba(42,36,30,.18);padding:10px 4px;gap:14px;align-items:flex-start}
+.s-ls.v-check .row:last-child{border-bottom:none}
+.s-ls.v-check .n{width:21px;height:21px;border:2.5px solid var(--accent);border-radius:5px;font-size:0;flex:0 0 auto;margin-top:4px}
+.s-ls.v-check .t{font-size:15.5px;line-height:1.7}
+.s-ls.v-time .row{background:transparent;box-shadow:none;border-radius:0;padding:5px 4px 5px 0;gap:15px;align-items:flex-start;position:relative}
+.s-ls.v-time .n{width:29px;height:29px;border-radius:50%;background:var(--accent);color:#fff;font-size:12.5px;font-family:'Noto Sans TC',sans-serif;display:flex;align-items:center;justify-content:center;flex:0 0 auto;z-index:1;letter-spacing:0}
+.s-ls.v-time .row::before{content:'';position:absolute;left:13.5px;top:29px;bottom:-6px;width:2px;background:var(--accentSoft);z-index:0}
+.s-ls.v-time .row:last-child::before{display:none}
+.s-ls.v-time .t{font-size:15px;padding-top:5px;line-height:1.65}
+.s-ls.v-memo .row{background:#FFFDF6;border-radius:2px;border:1px solid rgba(42,36,30,.08);box-shadow:0 3px 9px rgba(0,0,0,.13);padding:11px 16px;gap:13px}
+.s-ls.v-memo .row:nth-of-type(odd){transform:rotate(-.8deg)}
+.s-ls.v-memo .row:nth-of-type(even){transform:rotate(.7deg)}
+.s-ls.v-memo .n{font-family:'Noto Sans TC',sans-serif;font-size:13px;font-weight:900;color:var(--accent);letter-spacing:1px}
+.s-ls.v-memo .t{font-size:14.5px}
+/* ---- 對比頁三種新骨架（左右／表格／前後）---- */
+.s-cmp.v-side{justify-content:center;padding:44px 20px 30px}
+.s-cmp.v-side .sides{display:flex;align-items:stretch}
+.s-cmp.v-side .col{flex:1 1 0;padding:12px 13px;min-width:0}
+.s-cmp.v-side .col.a{border-right:2px solid var(--accentSoft)}
+.s-cmp.v-side .hh{font-size:14.5px;font-weight:900;margin-bottom:11px;letter-spacing:.5px}
+.s-cmp.v-side .col.a .hh{color:var(--ink2)}
+.s-cmp.v-side .col.b .hh{color:var(--accent)}
+.s-cmp.v-side .it{font-size:13px;line-height:2.05;font-weight:500}
+.s-cmp.v-table{justify-content:center;padding:44px 18px 30px}
+.s-cmp.v-table .thead{display:flex;margin-bottom:8px}
+.s-cmp.v-table .th{flex:1 1 0;font-size:13px;font-weight:900;text-align:center;padding:7px 6px;border-radius:8px;margin:0 3px;letter-spacing:.5px}
+.s-cmp.v-table .th.a{background:var(--accentSoft);color:var(--ink)}
+.s-cmp.v-table .th.b{background:var(--accent);color:#fff}
+.s-cmp.v-table .trow{display:flex;border-bottom:1px dashed rgba(42,36,30,.16)}
+.s-cmp.v-table .trow:last-child{border-bottom:none}
+.s-cmp.v-table .tc{flex:1 1 0;display:flex;gap:7px;align-items:flex-start;padding:11px 8px;font-size:12.5px;line-height:1.7;min-width:0;font-weight:500}
+.s-cmp.v-table .ic{font-weight:900;flex:0 0 auto;font-size:13px;line-height:1.5}
+.s-cmp.v-table .tc.x .ic{color:#B0A493}
+.s-cmp.v-table .tc.o .ic{color:var(--accent)}
+.s-cmp.v-arrow{justify-content:center}
+.s-cmp.v-arrow .arw{text-align:center;font-size:24px;color:var(--accent);line-height:1;margin:2px 0 8px;font-weight:900}
+.s-cmp.v-arrow .box.a{background:transparent;border:2px dashed var(--accentSoft)}
+/* ---- 深色頁：一組固定 2 到 3 張，滑起來明暗有呼吸 ---- */
+.s-st.dark,.s-ls.dark,.s-cmp.dark{background:var(--ink);color:#fff}
+.s-st.dark .kk,.s-ls.dark .kk{color:var(--accent2)}
+.s-st.dark .tag{background:var(--accent2)}
+.s-st.dark .big em{color:var(--accent2)}
+.s-st.dark .big u{background:linear-gradient(transparent 60%,rgba(201,168,124,.42) 60%)}
+.s-st.dark .bd{color:rgba(255,255,255,.74)}
+.s-ls.dark h4,.s-cmp.dark h4{color:#fff}
+.s-ls.dark .row{background:rgba(255,255,255,.07);box-shadow:none}
+.s-ls.dark .n{color:var(--accent2)}
+.s-ls.dark.v-check .row{background:transparent;border-bottom-color:rgba(255,255,255,.2)}
+.s-ls.dark.v-check .n{border-color:var(--accent2)}
+.s-ls.dark.v-time .row{background:transparent}
+.s-ls.dark.v-time .n{background:var(--accent2);color:var(--ink)}
+.s-ls.dark.v-time .row::before{background:rgba(255,255,255,.24)}
+.s-ls.dark.v-memo .row{background:#FFFDF6;color:var(--ink)}
+.s-cmp.dark .box.a{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.22);color:#fff}
+.s-cmp.dark .box.a .hh{color:var(--accent2)}
+.s-cmp.dark .box.b{background:var(--accent)}
+.s-cmp.dark .box.b .hh{color:#fff}
+.s-cmp.dark .vs{color:var(--accent2)}
+.s-cmp.dark.v-side .col.a{border-right-color:rgba(255,255,255,.24)}
+.s-cmp.dark.v-side .col.a .hh{color:rgba(255,255,255,.62)}
+.s-cmp.dark.v-side .col.b .hh{color:var(--accent2)}
+.s-cmp.dark.v-table .trow{border-bottom-color:rgba(255,255,255,.18)}
+.s-cmp.dark.v-table .th.a{background:rgba(255,255,255,.14);color:#fff}
+.s-cmp.dark.v-table .tc.o .ic{color:var(--accent2)}
+.s-cmp.dark.v-arrow .arw{color:var(--accent2)}
+.s-cmp.dark.v-arrow .box.a{border-color:rgba(255,255,255,.3)}
 /* ---- 限時動態 9:16（1080×1920）---- */
 .sy{width:270px;height:480px;position:relative;background:linear-gradient(165deg,var(--paper),var(--bg) 45%,var(--accentSoft) 130%);overflow:hidden;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.12)}
 .sy .wm{top:12px;right:12px;font-size:10px}
@@ -874,30 +942,32 @@ const GEN_POSTS=[
 {id:'T05',cat:'時事',theme:'G',aud:'有房貸的家庭・正在看房的人・買了儲蓄險想知道要不要動的人',title:'利率你猜不到，年期你選得到',note:'8/28 時事特別篇・僅引公開報導・非投資建議',
 ig:[
 {t:'cover',layout:4,kicker:'時事・聯準會新主席首秀',lines:[{x:'今晚一場演講，',acc:false},{x:'牽動你的房貸。',acc:true}],sub:'先說結論：利率你猜不到，年期你選得到 →'},
-{t:'st',kk:'新聞只講 10 秒',big:'聯準會新主席，<br>今晚<em>第一次開口</em>。',bd:'Kevin Warsh 五月接任第 17 任聯準會主席，上任後兩次會議都把利率維持在 3.50% 到 3.75%。今晚的 Jackson Hole 演講，是他第一次完整說明自己怎麼看經濟。'},
-{t:'bars',kk:'一個被忽略的數字',h4:'30 年期美國公債殖利率',bars:[{label:'2026 年 8 月 17 日',val:'5.31%',pct:100},{label:'2020 年低點',val:'0.99%',pct:19}],note:'2007 年以來最高。',src:'來源：REX Shares 2026.08.25 整理公開數據・非投資建議'},
-{t:'st',kk:'重點在這裡',big:'長期利率，<br><em>不是央行說了算</em>。',bd:'央行定的是短期利率。三十年期的利率，是由願意借政府三十年錢的人開價。台灣看的是自己的央行和銀行牌告，但邏輯一樣：長天期的錢，價格由市場決定，不是誰保證的。'},
+{t:'st',kk:'新聞只講 10 秒',big:'聯準會新主席，<br>今晚<em>第一次開口</em>。',bd:'Warsh 五月接任，上任後兩次會議都維持利率不動。今晚是他第一次完整說明自己怎麼看經濟。'},
+{t:'stat',kk:'市場現在在賭什麼',num:'40%',lab:'是<em>升息</em>，不是降息',bd:'期貨對 9 月升息的定價約四成，預測市場約三成。數字不同，方向一致。',src:'來源：公開報導與市場定價 2026.08 整理・非投資建議'},
+{t:'bars',kk:'一個被忽略的數字',h4:'30 年期美國公債殖利率',bars:[{label:'2026 年 8 月 17 日',val:'5.31%',pct:100},{label:'2020 年低點',val:'0.99%',pct:19}],note:'2007 年以來最高。長期利率不是央行說了算。',src:'來源：REX Shares 2026.08.25 整理公開數據・非投資建議'},
 {t:'q',tx:'利率不是你能猜的，<br>年期是你<em>能選的</em>。',at:'——我跟每個要簽房貸的客戶都講這句'},
-{t:'cmp',h:'同一間房，兩種簽法',a:{hh:'只看月付低',it:'年期拉到最長\n月付看起來輕鬆\n利率一動，撐的時間也最長'},b:{hh:'先做壓力測試',it:'年期照現金流設計\n先問升息後付不付得出來\n再決定要不要拉長'}},
-{t:'st',kk:'那儲蓄險呢',big:'利率漲，<br>你手上那張<u>不會跟著漲</u>。',bd:'宣告利率影響的是之後的新契約，已經生效的舊保單條件不會回頭改。所以別因為一則利率新聞就急著解約舊單——解約金的損失是確定的，未來的利率不是。'},
-{t:'ls',kk:'長按保存 🔖',h4:'簽房貸前，先算這五個數字',items:[{n:'01',x:'月付佔月收入幾成'},{n:'02',x:'升一碼，月付多多少'},{n:'03',x:'寬限期結束會跳多少'},{n:'04',x:'繳完那年你幾歲'},{n:'05',x:'房貸餘額有沒有被保障蓋住'}]},
+{t:'cmp',v:'table',h:'想讓月付低一點，四條路',a:{hh:'你得到什麼',it:'年期拉長 月付下降\n寬限期 先只還利息\n轉貸 換到低利方案\n部分提前還 本金變少'},b:{hh:'你付出什麼',it:'總利息變多 曝險更久\n結束那個月會跳一大階\n手續費與綁約期\n手上現金變少'}},
+{t:'ls',v:'check',kk:'有人這樣做，我拆給你看',h4:'要成立，這三件事得先成立',items:[{n:'01',x:'利差扣掉稅費後還在嗎'},{n:'02',x:'配息從哪來，收益還是本金'},{n:'03',x:'利差倒過來時，備援現金在哪'}]},
+{t:'st',kk:'那儲蓄險呢',big:'利率漲，<br>你手上那張<u>不會跟著漲</u>。',bd:'宣告利率影響的是之後的新契約，已生效的舊保單不會回頭改。別因為一則新聞就解約舊單。'},
+{t:'ls',v:'time',kk:'長按保存 🔖',h4:'簽房貸前，先算這五個數字',items:[{n:'1',x:'月付佔月收入幾成'},{n:'2',x:'升一碼，月付多多少'},{n:'3',x:'寬限期結束會跳多少'},{n:'4',x:'繳完那年你幾歲'},{n:'5',x:'房貸有沒有被保障蓋住'}]},
 {t:'end',q:'留言「年期」',sub2:'我私訊你互動版《房貸壓力測試・五個數字》，每一則都會回 👇'}],
 fbCards:[
-{t:'cover',layout:3,title:'房貸要簽<br>20 年還是<em>30 年</em>？',sub:'今晚聯準會新主席首次演講，先看懂這件事 →',pname:'——今日國際財經有感'},
-{t:'st',kk:'新聞事實',big:'30 年期殖利率，<br>回到 <em>2007</em> 年水準。',bd:'美國 30 年期公債殖利率 8 月 17 日收在 5.31%，是 2007 年以來最高。財政部 8 月 19 日加倍長天期公債買回，希望壓低長期借款成本。',src:'來源：REX Shares 2026.08.25 整理公開數據・非投資建議'},
+{t:'cover',layout:1,kicker:'寫給背著房貸的你',title:'房貸要簽<br>20 年還是<em>30 年</em>？',sub:'今晚聯準會新主席首次演講，先看懂這件事 →'},
+{t:'stat',kk:'市場現在在賭什麼',num:'40%',lab:'是<em>升息</em>，不是降息',bd:'期貨對 9 月升息的定價約四成，預測市場約三成。多數人心裡預設的降息，市場沒在賭。',src:'來源：公開報導與市場定價 2026.08 整理・非投資建議'},
+{t:'cmp',v:'side',h:'想讓月付低一點，四條路',a:{hh:'你得到什麼',it:'年期拉長\n寬限期只還息\n轉貸換低利\n部分提前還本'},b:{hh:'你付出什麼',it:'總利息變多\n結束後會跳階\n手續與綁約\n現金變少'}},
 {t:'q',tx:'你控制不了利率，<br>但控制得了<br><em>你要背多久</em>。',at:'年期是少數你能自己決定的事'},
 {t:'end',q:'你的房貸<br>還剩幾年？',sub2:'留言年數，我幫你算升一碼會多付多少 👇'}],
-caption:'今晚聯準會新主席第一次開口，跟你的房貸有什麼關係？\n\nKevin Warsh 五月接任第 17 任聯準會主席，上任後兩次會議都把利率維持在 3.50% 到 3.75%。今晚的 Jackson Hole 演講，是他第一次完整說明自己怎麼看經濟。\n\n但真正該看的不是這場演講，是這個數字——\n美國 30 年期公債殖利率，8 月 17 日收在 5.31%，2007 年以來最高。2020 年的低點是 0.99%。\n\n重點在這裡：長期利率不是央行說了算。\n央行定的是短期利率；三十年期的利率，是由願意借政府三十年錢的人開價。台灣看的是自己的央行和銀行牌告，但邏輯一樣——長天期的錢，價格由市場決定，不是誰保證的。\n\n所以我跟每個要簽房貸的客戶都講同一句話：\n利率不是你能猜的，年期是你能選的。\n\n只看月付低的人，年期拉到最長，月付看起來很輕鬆，但利率一動，他要撐的時間也最長。\n先做壓力測試的人，年期是照現金流設計的——先問升息之後付不付得出來，再決定要不要拉長。\n\n順便回答最多人問的：利率漲，我手上的儲蓄險會跟著漲嗎？\n不會。宣告利率影響的是之後的新契約，已經生效的舊保單條件不會回頭改。別因為一則利率新聞就急著解約舊單，解約金的損失是確定的，未來的利率不是。\n\n第 8 頁《簽房貸前先算的五個數字》，長按保存 🔖\n\n留言「年期」，我私訊你互動版，每則都回 👇\n\n#房貸 #利率 #升息 #現金流 #儲蓄險 #理財 #首購 #人生資本',
-fb:'今晚聯準會新主席第一次開口，跟你的房貸有什麼關係？\n\n先講背景。Kevin Warsh 今年五月接任第 17 任聯準會主席，上任之後主持了兩次利率會議，都把利率維持在 3.50% 到 3.75%。今晚他在 Jackson Hole 發表上任後第一場完整演講——這種場合沒有投票、沒有委員會措辭要顧，是市場少數能聽到主席「怎麼想」而不只是「決定了什麼」的時候。\n\n但我想請你看的不是這場演講，是另一個更少人談的數字。\n\n美國 30 年期公債殖利率，8 月 17 日收在 5.31%，是 2007 年以來最高。2020 年的低點是 0.99%。財政部 8 月 19 日還加倍了長天期公債的買回規模，想把長期借款成本壓下來。\n\n為什麼這個數字比利率決策更值得看？\n\n因為長期利率不是央行說了算。\n\n央行定的是短期利率。三十年期的利率，是由願意借政府三十年錢的那群人開價的——他們要多少補償，長期利率就是多少。台灣的房貸看的是自己的央行和銀行牌告，數字不一樣，但邏輯完全一樣：長天期的錢，價格由市場決定，不是誰能保證的。\n\n這件事對一般人的意義只有一句話：\n\n利率不是你能猜的，年期是你能選的。\n\n我看過太多人簽房貸只比一件事——月付多少。年期拉到最長，月付看起來最輕鬆，於是就簽了。但年期拉長的真正代價不只是總利息變多，而是你把自己暴露在利率變動裡的時間，也一起拉長了。\n\n比較穩的做法是反過來：先做一次壓力測試，再決定年期。\n\n簽下去之前，先算這五個數字：\n\n一、月付佔月收入幾成。超過三分之一就要小心，那是「順利的時候剛剛好」的比例。\n二、升一碼（0.25%）你的月付會多多少。算出實際金額，不要憑感覺。\n三、寬限期還剩幾期，結束之後月付會跳多少。很多家庭是在寬限期結束那個月才發現問題。\n四、繳完那一年你幾歲。如果落在退休之後，現金流計畫要提前處理。\n五、房貸餘額有沒有被保障蓋住。人不在了，房貸不會跟著消失，它會留給家人。\n\n最後回答最多人私訊問我的一題：利率漲，我手上的儲蓄險會跟著漲嗎？\n\n不會。宣告利率影響的是之後的新契約；已經生效的舊保單，條件不會回頭改。所以請不要因為一則利率新聞就急著解約舊單——解約金的損失是確定的，未來的利率不是。想調整可以，但要先看清楚手上這張的角色，再談要不要動。\n\n留言「年期」，我把互動版《房貸壓力測試・五個數字》傳給你，五分鐘算一次 👇\n\n（本文引用公開報導整理觀念，非投資建議；實際利率與保單條件依各金融機構與保單條款為準。）',
-gift:'【📌 首則留言（發文後 10 秒內自己搶頭香）】\n幫大家劃重點：長期利率不是央行說了算，你猜不到。但年期是你自己選的。簽房貸前先算五個數字：月付佔收入幾成、升一碼多付多少、寬限期結束跳多少、繳完那年你幾歲、房貸有沒有被保障蓋住。想要互動版《房貸壓力測試・五個數字》的，這則底下留言「年期」👇\n\n【A・貼文有人留言「年期」】\n先公開回覆：「已私訊你了🔥」\n再私訊：\n來～這是你要的《房貸壓力測試・五個數字》🏠\nhttps://lifecapitalab.github.io/gift/2026-0828.html\n互動版的，五個數字算一遍就知道你的房貸結構穩不穩。卡住哪一題直接回我，我陪你算 😊\n\n【B・限動有人回「1」】\n看到你回 1 了👋 清單直接給你：\nhttps://lifecapitalab.github.io/gift/2026-0828.html\n順便問一下，你的房貸現在還剩幾年？我幫你抓一下升一碼會多付多少。\n\n【C・投過票（20年🙋／30年💪）的人主動出擊】\n嘿，看到你投票了～你當初選這個年期，是先算過現金流，還是看月付決定的？我整理了一份五個數字的壓力測試，五分鐘算完，需要我傳給你嗎？\n\n【D・FB留言年數的人】\n公開回覆：「傳給你了✅」\n私訊：這是說好的《房貸壓力測試・五個數字》：\nhttps://lifecapitalab.github.io/gift/2026-0828.html\n你剛留的年數我看到了，把月付和利率跟我說，我幫你算升一碼的差額。\n\n【追蹤①・領完 24 小時後】\n昨天那五個數字有算嗎？多數人卡在第 5 題（房貸餘額沒有被保障蓋住），這題最容易被忽略也最好補，想聊隨時說 👍\n\n【追蹤②・對方有回覆互動】\n這種事講一次比想一個月有用。要不要約 15 分鐘，我幫你把房貸、現金流、保障三塊攤開看一次？線上就好，不推銷。\n\n【追蹤③・已讀未回 3 天】\n不打擾你～表格收好就好。什麼時候要簽約或要轉貸了，隨時把數字丟過來，我幫你算 😊',
+caption:'今晚聯準會新主席第一次開口，跟你的房貸有什麼關係？\n\n先講一個多數人搞反的事：現在市場在賭的是升息，不是降息。\n期貨對 9 月升息的定價約四成，預測市場約三成——數字不同，但方向一致。通膨還在 2% 目標之上，「利率總會降下來」這個預設，市場沒在賭。\n\n再看一個更少人談的數字：美國 30 年期公債殖利率，8 月 17 日收在 5.31%，2007 年以來最高，2020 年的低點是 0.99%。\n\n重點在這裡：長期利率不是央行說了算。央行定的是短期利率，三十年期的利率是由願意借政府三十年錢的人開價。台灣看的是自己的央行和銀行牌告，但邏輯一樣——長天期的錢，價格由市場決定。\n\n所以我跟每個要簽房貸的客戶都講同一句話：\n利率不是你能猜的，年期是你能選的。\n\n想讓月付低一點，其實有四條路：年期拉長、寬限期、轉貸、部分提前清償。第 6 頁我把「你得到什麼／你付出什麼」並排放，一眼就看得出代價在哪。\n\n第 7 頁比較特別。有人會用房貸出來的錢去投資、拿月配息覆蓋月付。這件事我不推薦也不評論，我只把它要成立的三個條件拆給你看：利差扣掉稅費後還在不在、配息是收益還是本金、利差倒過來時備援現金在哪。三個裡面有一個站不住，這件事就不成立。\n\n順便回答最多人問的：利率漲，我手上的儲蓄險會跟著漲嗎？不會。宣告利率影響的是之後的新契約。\n\n第 9 頁《簽房貸前先算的五個數字》，長按保存 🔖\n留言「年期」，我私訊你互動版，每則都回 👇\n\n（引用公開報導整理觀念，非投資建議。）\n\n#房貸 #利率 #升息 #現金流 #儲蓄險 #理財 #首購 #人生資本',
+fb:'今晚聯準會新主席第一次開口，跟你的房貸有什麼關係？\n\n先講一件多數人搞反的事。\n\n現在市場在賭的是升息，不是降息。聯邦基金期貨對 9 月升息的定價大約四成，預測市場那邊大約三成。兩邊數字不一樣，但方向是一致的——通膨還在 2% 目標之上，而「利率總會降下來」這個預設，市場其實沒在賭。\n\n再看一個更少人談的數字。美國 30 年期公債殖利率 8 月 17 日收在 5.31%，是 2007 年以來最高；2020 年的低點是 0.99%。財政部 8 月 19 日還加倍了長天期公債的買回規模，想把長期借款成本壓下來。\n\n為什麼這個數字比利率決策更值得看？\n\n因為長期利率不是央行說了算。央行定的是短期利率；三十年期的利率，是由願意借政府三十年錢的那群人開價的。台灣的房貸看的是自己的央行和銀行牌告，數字不一樣，但邏輯完全一樣——長天期的錢，價格由市場決定，不是誰能保證的。\n\n這件事對一般人的意義只有一句話：利率不是你能猜的，年期是你能選的。\n\n那想讓月付低一點，能做什麼？其實有四條路，每一條都有代價：\n\n・年期拉長 → 月付下降，但總利息變多，而且你暴露在利率變動裡的時間也一起拉長。\n・寬限期 → 先只還利息，月付最輕鬆，但結束那個月會跳一大階，很多家庭是那時候才出問題。\n・轉貸 → 換到比較低的方案，但有手續費、設定費和綁約期，要算回本要幾個月。\n・部分提前清償 → 本金直接變少，效果最直接，但手上現金也跟著變少，預備金會被吃掉。\n\n沒有哪一條是標準答案，要看你的現金流長什麼樣子。\n\n接下來這段比較敏感，但既然常被問，我就正面講。\n\n有人會用房貸出來的錢去投資，拿月配息去覆蓋房貸月付。我不推薦，也不評論做這件事的人，我只把它要成立的三個條件拆給你看：\n\n一、利差扣掉稅費之後還在不在。看起來的利差，扣掉手續費、經理費、稅，常常剩下不多。\n二、配息是從哪裡來的。月配息不等於收益，可能配到本金。淨值往下的時候，等於拿自己的錢在繳自己的房貸，帳面看起來還在賺。\n三、利差倒過來的時候，備援現金在哪。房貸利息是確定要付的，配息是不保證的。而現在市場正在賭升息，這個時間點特別要問清楚。\n\n三個條件裡有一個站不住，這件事就不成立。這是槓桿，不是理財技巧。\n\n最後回答最多人私訊問我的一題：利率漲，我手上的儲蓄險會跟著漲嗎？\n\n不會。宣告利率影響的是之後的新契約；已經生效的舊保單，條件不會回頭改。所以請不要因為一則利率新聞就急著解約舊單——解約金的損失是確定的，未來的利率不是。\n\n留言「年期」，我把互動版《房貸壓力測試・五個數字》傳給你，五分鐘算一次 👇\n\n（本文引用公開報導整理觀念，非投資建議，也不構成任何借款或商品的推介；實際利率與保單條件依各金融機構與保單條款為準。）',
+gift:'【📌 首則留言（發文後 10 秒內自己搶頭香）】\n幫大家劃重點：現在市場在賭的是升息不是降息。利率你猜不到，年期是你選得到的。想讓月付低一點有四條路，每條都有代價；想用房貸出來投資的，先看那三個條件成不成立。想要互動版《房貸壓力測試・五個數字》的，這則底下留言「年期」👇\n\n【A・貼文有人留言「年期」】\n先公開回覆：「已私訊你了🔥」\n再私訊：\n來～這是你要的《房貸壓力測試・五個數字》🏠\nhttps://lifecapitalab.github.io/gift/2026-0828.html\n互動版的，五個數字算一遍就知道你的房貸結構穩不穩。卡住哪一題直接回我，我陪你算 😊\n\n【B・限動有人回「1」】\n看到你回 1 了👋 表格直接給你：\nhttps://lifecapitalab.github.io/gift/2026-0828.html\n順便問一下，你的房貸現在還剩幾年？我幫你抓一下升一碼會多付多少。\n\n【C・投過票（20年🙋／30年💪）的人主動出擊】\n嘿，看到你投票了～你當初選這個年期，是先算過現金流，還是看月付決定的？我整理了一份五個數字的壓力測試，五分鐘算完，需要我傳給你嗎？\n\n【D・有人問「房貸出來投資可不可以」】\n這題我不會直接說可以或不可以，因為它要成立有三個條件：利差扣掉稅費後還在不在、配息是收益還是本金、利差倒過來時你的備援現金在哪。你把目前的數字給我，我陪你一條一條檢查，不成立我會直接跟你說 🙏\n\n【E・FB留言年數的人】\n公開回覆：「傳給你了✅」\n私訊：這是說好的《房貸壓力測試・五個數字》：\nhttps://lifecapitalab.github.io/gift/2026-0828.html\n你剛留的年數我看到了，把月付和利率跟我說，我幫你算升一碼的差額。\n\n【追蹤①・領完 24 小時後】\n昨天那五個數字有算嗎？多數人卡在第 5 題（房貸餘額沒有被保障蓋住），這題最容易被忽略也最好補，想聊隨時說 👍\n\n【追蹤②・對方有回覆互動】\n這種事講一次比想一個月有用。要不要約 15 分鐘，我幫你把房貸、現金流、保障三塊攤開看一次？線上就好，不推銷。\n\n【追蹤③・已讀未回 3 天】\n不打擾你～表格收好就好。什麼時候要簽約或轉貸了，隨時把數字丟過來，我幫你算 😊',
 igStory:[
-{t:'hook',note:'蓋「投票貼紙」＋「貼文貼紙」連到今天的輪播・封面用看房／簽約／算計算機的側拍',kick:'今日時事',h:'房貸要簽<br>20年還是<em>30年</em>？',a:'20年 🙋',b:'30年 💪'},
+{t:'hook',note:'蓋「投票貼紙」＋「貼文貼紙」連到今天的輪播・封面用看房／簽約／按計算機的側拍',kick:'今日時事',h:'房貸要簽<br>20年還是<em>30年</em>？',a:'20年 🙋',b:'30年 💪'},
 {t:'val',note:'可加「測驗貼紙」讓人猜',kick:'記住這 3 件事',h:'簽房貸前，先問這3題：',items:['月付佔月收入幾成','升一碼月付多多少','繳完那年你幾歲'],hint:'截圖存起來，簽約前一定要算'},
-{t:'proof',note:'加「問答貼紙：你的房貸還剩幾年？」',kick:'今天的私訊',msgs:[{s:'l',x:'利率會不會再升啊？要不要提前還？'},{s:'r',x:'利率猜不到，先看你的年期撐不撐得住'},{s:'l',x:'原來我從來沒算過寬限期結束的月付'}],hand:'——你也可以'},
+{t:'proof',note:'加「問答貼紙：你的房貸還剩幾年？」',kick:'今天的私訊',msgs:[{s:'l',x:'利率會不會再降啊？想等等看'},{s:'r',x:'市場現在賭的是升息，不是降息'},{s:'l',x:'蛤…那我的寬限期結束怎麼辦'}],hand:'——你也可以'},
 {t:'urge',note:'加「倒數貼紙」＋「連結貼紙」貼贈品網址',h:'今晚12點收<br>《房貸<u>壓力測試</u>五個數字》',sub:'互動版網頁・五分鐘<br>算完就知道穩不穩',lk:'🔗 限時領取'},
 {t:'dm',note:'放你的自拍＋「私訊我」引導',h:'背著房貸<br>又怕升息的',bar:'限動回「1」，我幫你算 💬'}],
 fbStory:[
-{t:'hook',note:'FB版開場（換角度不同句）',kick:'國際財經',h:'30年期殖利率<br>回到 <em>2007</em> 年',a:'有點擔心 😮',b:'想知道影響 👀'},
+{t:'hook',note:'FB版開場（換角度不同句）',kick:'國際財經',h:'市場在賭<em>升息</em><br>不是降息',a:'有點擔心 😮',b:'想知道影響 👀'},
 {t:'urge',note:'FB限動可直接放連結',h:'《房貸<u>壓力測試</u>五個數字》<br>開放領取中',sub:'5 個數字<br>利率猜不到，年期算得出來',lk:'🔗 點我領取'},
 {t:'dm',note:'放你的自拍＋引導留言',h:'房貸該簽幾年<br>可以問我',bar:'留言「年期」我傳給你 💬'}]},
 {id:'T04',cat:'時事',theme:'G',aud:'單一薪水的上班族・想增加副收入的人・被物價壓到的雙薪家庭',title:'關稅在打，帳單寄到你家',note:'8/27 時事特別篇・立場中立・僅引公開報導',
@@ -1091,10 +1161,29 @@ let HERO='';
 try{HERO=localStorage.getItem('mx_hero')||''}catch(e){}
 function heroActive(){const c=$('#heroOn');return !!(HERO&&c&&c.checked)}
 function markHero(arr){
-  arr.forEach(s=>{delete s._hero;delete s._pos});
+  arr.forEach(s=>{delete s._hero;delete s._pos;delete s._v;delete s._dark});
   const sts=arr.filter(s=>s.t==='st');
   sts.forEach((s,k)=>{s._pos=['top','mid','low'][k%3]});   /* 觀念頁上／中／下輪流，滑起來有節奏 */
-  sts.filter(s=>s._pos!=='mid').slice(0,2).forEach(s=>{s._hero=1}); /* 照片只鋪文字靠上或靠下那兩張，亮部永遠不壓字；金句頁保持乾淨深色 */
+  /* 明暗節奏：把第 2 個與第 5 個「觀念／清單／對比」頁翻成深色，不緊貼金句頁 */
+  const cand=[]; arr.forEach((s,i)=>{ if(s.t==='st'||s.t==='ls'||s.t==='cmp') cand.push(i) });
+  let picked=0,last=-99;
+  for(let k=0;k<cand.length&&picked<2;k++){
+    const i=cand[k];
+    if(arr[i-1]&&arr[i-1].t==='q') continue;
+    if(arr[i+1]&&arr[i+1].t==='q') continue;
+    if(i-last<3) continue;
+    arr[i]._dark=1; last=i; picked++;
+  }
+  /* 骨架輪替：同一篇的清單頁／對比頁不會每張長一樣，不同篇之間也會錯開 */
+  let seed=0; const key=((arr[0]&&(arr[0].title||arr[0].kicker||''))||'')+arr.length;
+  for(const ch of key) seed=(seed*31+ch.codePointAt(0))%9973;
+  const LSV=['card','check','time','memo'], CMV=['stack','side','table','arrow'];
+  let li=seed, ci=seed+2;
+  arr.forEach(s=>{
+    if(s.t==='ls') s._v=s.v||LSV[(li++)%4];
+    if(s.t==='cmp') s._v=s.v||CMV[(ci++)%4];
+  });
+  sts.filter(s=>s._pos!=='mid'&&!s._dark).slice(0,2).forEach(s=>{s._hero=1}); /* 照片只鋪淺色且文字靠上或靠下那兩張，亮部永遠不壓字 */
 }
 /* 輪播圖上的標點清理：逗號換成空隙、拿掉引號與句號（長文文案不動） */
 function pz(v){
@@ -1141,11 +1230,30 @@ function slideHTML(s,i,n){
       : `${photoSlot()}<div class="edge"></div><div class="ct">${ct}</div>`;
     inner=`<div class="cvB ${v}">${body}${wm()}<div class="swipe">往後滑 →</div>${dots(i,n)}</div>`;
   }
-  else if(s.t==='st') inner=`<div class="s-st ${s._pos||'top'}">${wm()}<div class="tag"></div><div class="kk" ${E}>${s.kk||''}</div><div class="big" ${E}>${s.big}</div>${s.bd?`<div class="bd" ${E}>${s.bd}</div>`:''}${dots(i,n)}</div>`;
+  else if(s.t==='st') inner=`<div class="s-st ${s._pos||'top'}${s._dark?' dark':''}">${wm(!!s._dark)}<div class="tag"></div><div class="kk" ${E}>${s.kk||''}</div><div class="big" ${E}>${s.big}</div>${s.bd?`<div class="bd" ${E}>${s.bd}</div>`:''}${dots(i,n,!!s._dark)}</div>`;
   else if(s.t==='dlg') inner=`<div class="s-dlg">${wm()}<div class="kk" ${E}>${s.kk||''}</div>${s.msgs.map(m=>`<div class="bub ${m.s}" ${E}>${m.x}</div>`).join('')}${dots(i,n)}</div>`;
   else if(s.t==='q') inner=`<div class="s-q">${wm(true)}<div class="qm serif">「</div><div class="tx serif" ${E}>${s.tx}</div><div class="at" ${E}>${s.at||''}</div>${dots(i,n,true)}</div>`;
-  else if(s.t==='ls') inner=`<div class="s-ls${s.items.length>4?' many':''}">${wm()}<div class="kk" ${E}>${s.kk||''}</div><h4 ${E}>${s.h4}</h4>${s.items.map(it=>`<div class="row"><div class="n serif">${it.n}</div><div class="t" ${E}>${it.x}</div></div>`).join('')}${dots(i,n)}</div>`;
-  else if(s.t==='cmp') inner=`<div class="s-cmp">${wm()}<h4 ${E}>${s.h}</h4><div class="box a"><div class="hh" ${E}>${s.a.hh}</div><div class="it" ${E}>${s.a.it.replace(/\n/g,'<br>')}</div></div><div class="vs serif">VS</div><div class="box b"><div class="hh" ${E}>${s.b.hh}</div><div class="it" ${E}>${s.b.it.replace(/\n/g,'<br>')}</div></div>${dots(i,n)}</div>`;
+  else if(s.t==='ls'){
+    const v=s._v||'card', many=s.items.length>4;
+    inner=`<div class="s-ls${many?' many':''} v-${v}${s._dark?' dark':''}">${wm(!!s._dark)}<div class="kk" ${E}>${s.kk||''}</div><h4 ${E}>${s.h4}</h4>${s.items.map(it=>`<div class="row"><div class="n${v==='card'||v==='memo'?' serif':''}">${it.n}</div><div class="t" ${E}>${it.x}</div></div>`).join('')}${dots(i,n,!!s._dark)}</div>`;
+  }
+  else if(s.t==='cmp'){
+    const v=s._v||'stack', d=s._dark?' dark':'', br=x=>String(x||'').replace(/\n/g,'<br>'), ln=x=>String(x||'').split('\n');
+    let body;
+    if(v==='side'){
+      body=`<div class="sides"><div class="col a"><div class="hh" ${E}>${s.a.hh}</div><div class="it" ${E}>${br(s.a.it)}</div></div><div class="col b"><div class="hh" ${E}>${s.b.hh}</div><div class="it" ${E}>${br(s.b.it)}</div></div></div>`;
+    } else if(v==='table'){
+      const la=ln(s.a.it), lb=ln(s.b.it), m=Math.max(la.length,lb.length);
+      let rows='';
+      for(let k=0;k<m;k++) rows+=`<div class="trow"><div class="tc x"><span class="ic">✕</span><span ${E}>${la[k]||''}</span></div><div class="tc o"><span class="ic">✓</span><span ${E}>${lb[k]||''}</span></div></div>`;
+      body=`<div class="tbl"><div class="thead"><div class="th a" ${E}>${s.a.hh}</div><div class="th b" ${E}>${s.b.hh}</div></div>${rows}</div>`;
+    } else if(v==='arrow'){
+      body=`<div class="box a"><div class="hh" ${E}>${s.a.hh}</div><div class="it" ${E}>${br(s.a.it)}</div></div><div class="arw">↓</div><div class="box b"><div class="hh" ${E}>${s.b.hh}</div><div class="it" ${E}>${br(s.b.it)}</div></div>`;
+    } else {
+      body=`<div class="box a"><div class="hh" ${E}>${s.a.hh}</div><div class="it" ${E}>${br(s.a.it)}</div></div><div class="vs serif">VS</div><div class="box b"><div class="hh" ${E}>${s.b.hh}</div><div class="it" ${E}>${br(s.b.it)}</div></div>`;
+    }
+    inner=`<div class="s-cmp v-${v}${d}">${wm(!!s._dark)}<h4 ${E}>${s.h}</h4>${body}${dots(i,n,!!s._dark)}</div>`;
+  }
   else if(s.t==='stat') inner=`<div class="s-stat">${wm()}<div class="kk" ${E}>${s.kk||''}</div><div class="num" ${E}>${s.num}</div><div class="lab" ${E}>${s.lab}</div>${s.bd?`<div class="bd" ${E}>${s.bd}</div>`:''}<div class="src" ${E}>${s.src||''}</div>${dots(i,n)}</div>`;
   else if(s.t==='bars') inner=`<div class="s-bars">${wm()}<div class="kk" ${E}>${s.kk||''}</div><h4 ${E}>${s.h4}</h4>${s.bars.map((b,k)=>`<div class="brow ${k%2?'alt':''}"><div class="bl" ${E}>${b.label}</div><div class="track"><div class="fill" style="width:${b.pct}%" ${E}>${b.val}</div></div></div>`).join('')}${s.note?`<div class="note" ${E}>${s.note}</div>`:''}<div class="src" ${E}>${s.src||''}</div>${dots(i,n)}</div>`;
   else if(s.t==='smile') inner=`<div class="s-sm">${wm()}<div class="kk" ${E}>${s.kk||''}</div><h4 ${E}>${s.h4||''}</h4><div class="arcbox"><div class="arc"></div><div class="lbl" style="left:4px;top:-24px" ${E}>高價開始扣 😐</div><div class="lbl" style="left:50%;transform:translateX(-50%);bottom:-8px;color:var(--accent)" ${E}>下跌＝便宜補貨區 😋</div><div class="lbl" style="right:4px;top:-24px" ${E}>回升收割 🎉</div></div><div class="bd" ${E}>${s.bd||''}</div>${dots(i,n)}</div>`;
