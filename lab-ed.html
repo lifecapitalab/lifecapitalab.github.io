@@ -1232,7 +1232,9 @@ function markHero(arr){
     if(s.t==='ls') s._v=s.v||LSV[(li++)%4];
     if(s.t==='cmp') s._v=s.v||CMV[(ci++)%4];
   });
-  sts.filter(s=>s._pos!=='mid'&&!s._dark).slice(0,2).forEach(s=>{s._hero=1}); /* 照片只鋪淺色且文字靠上或靠下那兩張，亮部永遠不壓字 */
+  let hc=sts.filter(s=>!s._dark&&s._pos!=='mid');
+  if(!hc.length){ const m=sts.find(s=>!s._dark); if(m){ m._pos='top'; hc=[m]; } }
+  hc.slice(0,2).forEach(s=>{s._hero=1}); /* 照片只鋪淺色且文字靠上或靠下那兩張，亮部永遠不壓字 */
 }
 /* 輪播圖上的標點清理：逗號換成空隙、拿掉引號與句號（長文文案不動） */
 function pz(v){
@@ -1247,13 +1249,33 @@ function pzDeep(o){
 function heroLayer(){return `<div class="hero"><img class="himg" src="${HERO}" alt=""><div class="hfade"></div></div>`}
 window.pickHero=function(){
   const inp=document.createElement('input');inp.type='file';inp.accept='image/*';
-  inp.onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
-    r.onload=ev=>{HERO=ev.target.result;
-      try{localStorage.setItem('mx_hero',HERO)}catch(err){/* 圖太大就只存在這次工作階段 */}
-      const c=$('#heroOn'); if(c&&!c.checked)c.checked=true;
-      try{localStorage.setItem('mx_heroOn','1')}catch(err){}
-      render();};
-    r.readAsDataURL(f)};
+  inp.onchange=e=>{
+    const f=e.target.files[0];if(!f)return;
+    const r=new FileReader();
+    r.onerror=()=>alert('這個檔案讀不到，換一張試試 🙏');
+    r.onload=ev=>{
+      const img=new Image();
+      img.onerror=()=>alert('這張圖瀏覽器打不開，最常見的原因是 iPhone 的 HEIC 檔。\n\n解法二選一：\n① 照片 App 打開 → 分享 → 選「檔案」存成 JPG 再上傳\n② iPhone 設定 → 相機 → 格式 → 改成「最相容」，之後拍的都是 JPG');
+      img.onload=()=>{
+        const M=1400, sc=Math.min(1,M/Math.max(img.naturalWidth,img.naturalHeight));
+        const cv=document.createElement('canvas');
+        cv.width=Math.round(img.naturalWidth*sc);cv.height=Math.round(img.naturalHeight*sc);
+        cv.getContext('2d').drawImage(img,0,0,cv.width,cv.height);
+        HERO=cv.toDataURL('image/jpeg',0.86);
+        let saved=true; try{localStorage.setItem('mx_hero',HERO)}catch(err){saved=false}
+        const c=$('#heroOn'); if(c&&!c.checked)c.checked=true;
+        try{localStorage.setItem('mx_heroOn','1')}catch(err){}
+        render();
+        setTimeout(()=>{
+          const n=document.querySelectorAll('.hero .himg').length;
+          if(!n) alert('照片存好了，但這一篇剛好沒有可以鋪人像的版面。\n人像只鋪在淺色的觀念頁，深色頁和金句頁會保持乾淨。換一篇看看。');
+          else if(!saved) alert('照片已套用 ✓\n（檔案偏大，這次有效，重新整理後要再傳一次）');
+        },350);
+      };
+      img.src=ev.target.result;
+    };
+    r.readAsDataURL(f);
+  };
   inp.click();
 };
 window.toggleHero=function(){
