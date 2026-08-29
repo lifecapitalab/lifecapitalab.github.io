@@ -217,9 +217,6 @@ body[data-pal="navy"] .s-st.low .hero .hfade{background:linear-gradient(0deg,rgb
 /* ---- 內頁主題底圖（程式原創繪製，可一鍵切換）---- */
 .artbg{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
 .artbg svg{width:100%;height:100%;display:block}
-.artbtn{position:absolute;left:8px;bottom:8px;z-index:9;border:none;cursor:pointer;background:rgba(42,36,30,.45);color:#fff;font-family:inherit;font-size:10px;font-weight:700;letter-spacing:.5px;border-radius:14px;padding:4px 9px;opacity:.32;transition:.2s}
-.sl:hover .artbtn{opacity:1}
-.dark .artbtn{background:rgba(255,255,255,.26)}
 .s-st,.s-ls,.s-cmp,.s-stat,.s-bars,.s-dlg,.s-sm{position:relative}
 /* ---- 清單頁三種新骨架（打勾／時間軸／便條）---- */
 .s-ls.v-check .row{background:transparent;box-shadow:none;border-radius:0;border-bottom:1px dashed rgba(42,36,30,.18);padding:10px 4px;gap:14px;align-items:flex-start}
@@ -975,20 +972,20 @@ hooks:[
 {h:'H7',n:'直接指令法',x:'先算結餘，再談投資',say:'先算你的結餘，再談投資。',bridge:'為什麼？因為大部分人一講理財，第一句就是「該買什麼」。可是買什麼是最後一步，前面還有三步沒做。'}],
 ig:[
 {t:'cover',layout:2,kicker:'時事・聯準會主席首次演講',title:'錢放著不動，<br><em>其實正在被扣款</em>',sub:'通膨還太高，那你的現金呢 →'},
-{t:'st',kk:'新聞只講 10 秒',big:'聯準會主席說：<br><em>先管物價</em>。',bd:'Warsh 在 Jackson Hole 首場演講直言通膨仍在 2% 目標之上，聯準會現在的首要焦點應該放在物價。市場解讀偏鷹，2 年期公債殖利率當場跳升約 8 個基點。'},
-{t:'stat',kk:'最新的通膨數字',num:'3.7%',lab:'美國最新 <em>PCE</em> 年增率',bd:'核心 PCE 3.3%，兩個都在 2% 目標之上。通膨黏著的意思是：這件事不是一年就過去。',src:'來源：Yahoo Finance 2026.08.28 公開報導・非投資建議'},
-{t:'bars',kk:'換算成你看得懂的',h4:'100 萬放著不動，20 年後剩多少',bars:[{label:'今天',val:'100 萬',pct:100},{label:'年通膨 2%（央行目標值）',val:'67 萬',pct:67},{label:'年通膨 3.7%（美國最新 PCE）',val:'48 萬',pct:48}],note:'數字沒少，能買的東西少了。',src:'算法：100 ÷（1＋通膨率）^20・固定通膨率下的算術推估・非投資建議'},
-{t:'st',kk:'重點在這裡',big:'錢不動，<br><em>不等於沒風險</em>。',bd:'放在活存的錢，帳戶數字沒變，購買力每年在減。這不是投資的風險，是不理財的風險——而且它不會通知你。'},
-{t:'q',tx:'通膨是一筆<br>你沒同意的<em>扣款</em>。',at:'——每個月都扣，帳單不會寄給你'},
-{t:'cmp',v:'table',ic:['✕','✓'],h:'理財的順序，多數人做反了',a:{hh:'常見的順序',it:'先問該買什麼\n有多少投多少\n出事再想辦法\n跌了就停扣'},b:{hh:'穩的順序',it:'先算每月結餘\n先填緊急預備金\n先把輸不起的框住\n剩下的錢才進場'}},
-{t:'ls',v:'time',kk:'長按保存 🔖',h4:'理財的四個順序，別跳號',items:[{n:'1',x:'算出每月真正的結餘'},{n:'2',x:'預備金先填到 6 個月'},{n:'3',x:'把輸不起的部分框住'},{n:'4',x:'三年用不到的錢才進場'}]},
-{t:'st',kk:'我的立場先講清楚',big:'我不會跟你說<br>買什麼，<u>但會說順序</u>。',bd:'標的的選擇因人而異，也不是我的執業範圍。但順序是通用的：結餘、預備金、風險、才輪到投資。順序錯了，買什麼都會被打斷。'},
+{t:'st',art:'bandB',kk:'新聞只講 10 秒',big:'聯準會主席說：<br><em>先管物價</em>。',bd:'Warsh 在 Jackson Hole 首場演講直言通膨仍在 2% 目標之上，聯準會現在的首要焦點應該放在物價。市場解讀偏鷹，2 年期公債殖利率當場跳升約 8 個基點。'},
+{t:'stat',art:'rays',kk:'最新的通膨數字',num:'3.7%',lab:'美國最新 <em>PCE</em> 年增率',bd:'核心 PCE 3.3%，兩個都在 2% 目標之上。通膨黏著的意思是：這件事不是一年就過去。',src:'來源：Yahoo Finance 2026.08.28 公開報導・非投資建議'},
+{t:'bars',art:'arcTR',kk:'換算成你看得懂的',h4:'100 萬放著不動，20 年後剩多少',bars:[{label:'今天',val:'100 萬',pct:100},{label:'年通膨 2%（央行目標值）',val:'67 萬',pct:67},{label:'年通膨 3.7%（美國最新 PCE）',val:'48 萬',pct:48}],note:'數字沒少，能買的東西少了。',src:'算法：100 ÷（1＋通膨率）^20・固定通膨率下的算術推估・非投資建議'},
+{t:'st',art:'curve',kk:'重點在這裡',big:'錢不動，<br><em>不等於沒風險</em>。',bd:'放在活存的錢，帳戶數字沒變，購買力每年在減。這不是投資的風險，是不理財的風險——而且它不會通知你。'},
+{t:'q',art:'frame',tx:'通膨是一筆<br>你沒同意的<em>扣款</em>。',at:'——每個月都扣，帳單不會寄給你'},
+{t:'cmp',v:'table',art:'corner',ic:['✕','✓'],h:'理財的順序，多數人做反了',a:{hh:'常見的順序',it:'先問該買什麼\n有多少投多少\n出事再想辦法\n跌了就停扣'},b:{hh:'穩的順序',it:'先算每月結餘\n先填緊急預備金\n先把輸不起的框住\n剩下的錢才進場'}},
+{t:'ls',v:'time',art:'dotGrid',kk:'長按保存 🔖',h4:'理財的四個順序，別跳號',items:[{n:'1',x:'算出每月真正的結餘'},{n:'2',x:'預備金先填到 6 個月'},{n:'3',x:'把輸不起的部分框住'},{n:'4',x:'三年用不到的錢才進場'}]},
+{t:'st',art:'slab',kk:'我的立場先講清楚',big:'公開場合<em>我不點名</em>，<br>坐下來<u>就能講細</u>。',bd:'面對不特定多數人喊哪一檔、承諾多少報酬，那是不負責任。但你願意把收入、支出、目標、能承受多少波動攤開來，我們就能談到很具體的地方——順序是公開的，配置是看人的。'},
 {t:'end',q:'留言「順序」',sub2:'我私訊你互動版《理財順序自檢・五個問題》，每一則都會回 👇'}],
 fbCards:[
 {t:'cover',layout:3,title:'錢放著不動，<br>其實正在<em>被扣款</em>',sub:'聯準會主席說通膨還太高，那你的現金呢 →',pname:'——今日國際財經有感'},
-{t:'stat',kk:'最新的通膨數字',num:'3.7%',lab:'美國最新 <em>PCE</em> 年增率',bd:'核心 3.3%，都在 2% 目標之上。通膨黏著的意思是：這件事不是一年就過去。',src:'來源：Yahoo Finance 2026.08.28 公開報導・非投資建議'},
-{t:'bars',kk:'換算成你看得懂的',h4:'100 萬放著不動，20 年後剩多少',bars:[{label:'今天',val:'100 萬',pct:100},{label:'年通膨 2%',val:'67 萬',pct:67},{label:'年通膨 3.7%',val:'48 萬',pct:48}],note:'數字沒少，能買的東西少了。',src:'算法：100 ÷（1＋通膨率）^20・固定通膨率下的算術推估・非投資建議'},
-{t:'q',tx:'順序錯了，<br>買什麼都會<em>被打斷</em>。',at:'這就是為什麼先排順序比先選標的重要'},
+{t:'stat',art:'rays',kk:'最新的通膨數字',num:'3.7%',lab:'美國最新 <em>PCE</em> 年增率',bd:'核心 3.3%，都在 2% 目標之上。通膨黏著的意思是：這件事不是一年就過去。',src:'來源：Yahoo Finance 2026.08.28 公開報導・非投資建議'},
+{t:'bars',art:'arcTR',kk:'換算成你看得懂的',h4:'100 萬放著不動，20 年後剩多少',bars:[{label:'今天',val:'100 萬',pct:100},{label:'年通膨 2%',val:'67 萬',pct:67},{label:'年通膨 3.7%',val:'48 萬',pct:48}],note:'數字沒少，能買的東西少了。',src:'算法：100 ÷（1＋通膨率）^20・固定通膨率下的算術推估・非投資建議'},
+{t:'q',art:'frame',tx:'順序錯了，<br>買什麼都會<em>被打斷</em>。',at:'這就是為什麼先排順序比先選標的重要'},
 {t:'end',q:'你的錢<br>有多少躺在活存？',sub2:'留言比例，我幫你看順序卡在哪一關 👇'}],
 reels:{form:'教知識・借痛點',hook:'H4 條件觸發法',shot:'定點口播＋字卡',len:'約 45 秒',
 rows:[
@@ -1001,9 +998,9 @@ rows:[
 keys:['結餘','預備金','順序','三年'],
 cta:'留言「順序」→ 私訊互動版《理財順序自檢・五個問題》',
 tags:'#理財 #通膨 #現金流 #預備金 #投資觀念 #人生資本'},
-caption:'聯準會主席說通膨還太高。那你放在活存的錢呢？\n\nWarsh 昨晚在 Jackson Hole 的首場演講講得很直接：通膨仍在 2% 目標之上，聯準會現在的首要焦點應該放在物價。最新的 PCE 年增率 3.7%，核心 3.3%。\n\n通膨黏著的意思是——這件事不是一年就過去。\n\n算給你看（固定通膨率下的算術，不是預測）：\n・年通膨 2%，100 萬放二十年，購買力剩 67 萬\n・年通膨 3.7%，剩 48 萬\n\n帳戶數字沒少，能買的東西少了。這不是投資的風險，是不理財的風險，而且它不會通知你。\n\n但我不會叫你「快去買點什麼」。\n\n因為大部分人理財的第一句話就問錯了——「我該買什麼？」買什麼是最後一步，前面還有三步沒做。順序錯了，你會在最不該賣的時候被迫賣掉，那才是真正虧錢的原因。\n\n順序是這樣（第 8 頁）：\n1️⃣ 算出每月真正的結餘，不是收入\n2️⃣ 預備金先填到 6 個月\n3️⃣ 把輸不起的部分框住\n4️⃣ 三年用不到的錢，才進場\n\n第 9 頁我把立場講清楚：標的的選擇因人而異，也不是我的執業範圍。我不會跟你說買什麼，但我會跟你說順序——因為順序是通用的。\n\n留言「順序」，我私訊你互動版的五個問題，五分鐘算完 👇\n\n（引用公開報導整理觀念，非投資建議。）\n\n#理財 #通膨 #現金流 #預備金 #投資觀念 #第一桶金 #存錢 #人生資本',
-fb:'聯準會主席說通膨還太高。那你放在活存的錢呢？\n\n先講新聞。Kevin Warsh 昨晚在 Jackson Hole 發表上任後第一場主題演講，講得比很多人預期的直接。他說各種指標都指向同一件事：通膨仍在聯準會 2% 的目標之上，所以「聯準會現在的首要焦點應該放在物價」。市場把這段話讀成短期偏鷹，2 年期公債殖利率當場跳升約 8 個基點。最新的 PCE 年增率是 3.7%，核心 3.3%。\n\n通膨黏著的意思是——這件事不是撐一年就過去的。\n\n那它跟你有什麼關係？算給你看。以下是固定通膨率下的算術推估，不是對未來通膨的預測：\n\n・如果年通膨 2%（各國央行的目標值），100 萬放著不動二十年，購買力剩 67 萬。\n・如果年通膨 3.7%（美國最新 PCE 數字），剩 48 萬。\n\n你的帳戶數字一毛都沒少，但它能買到的東西少了一半。這不是投資的風險，是不理財的風險——而且它每年都在扣，帳單不會寄給你。\n\n但我不會就這樣叫你「快去買點什麼」。\n\n因為大部分人理財的第一句話就問錯了。多數人一開口是「我該買什麼？」——可是買什麼是最後一步，前面還有三步沒做。\n\n順序錯的代價，比選錯標的還大。原因很簡單：如果你沒有預備金，臨時要用錢的時候，你就得在最不該賣的時候賣掉。真正讓人虧錢的通常不是標的選錯，是被迫在低點離場。\n\n所以順序是這樣：\n\n一、算出每個月真正的結餘。不是你的收入，是收入減掉所有固定支出之後真的剩下的那個數字。多數人講不出來，這就是第一個問題。\n\n二、緊急預備金先填到六個月。這筆錢放活存就好，它的工作不是賺錢，是讓你不必在錯的時間點動用投資部位。\n\n三、把輸不起的部分框住。醫療、失能、意外這些一旦發生就會把計畫整個打斷的事，先處理掉。這一步不是為了保險而保險，是為了讓你的投資不會被一場意外中斷。\n\n四、三年內用不到的錢，才進場。房子頭期款、明年學費、婚禮基金——這些不算。只有真的三年以上用不到的錢，才等得起市場的來回。\n\n最後我把立場講清楚：\n\n標的怎麼選，因人而異，也不是我的執業範圍，我不會跟你說買什麼。但順序是通用的，這個我可以講，而且我認為它比選標的重要十倍。順序對了，買得普通也走得遠；順序錯了，買得再好都會被打斷。\n\n留言「順序」，我把互動版《理財順序自檢・五個問題》傳給你，五分鐘就算得完 👇\n\n（本文引用公開報導整理觀念，非投資建議，亦不構成任何金融商品之推介；購買力換算為固定通膨率下的算術推估，非對未來通膨的預測。）',
-gift:'【📌 首則留言（發文後 10 秒內自己搶頭香）】\n幫大家劃重點：通膨是一筆你沒同意的扣款。年通膨 2%，100 萬放二十年剩 67 萬；3.7% 的話剩 48 萬。但別急著亂買——理財的順序是結餘、預備金、風險、才輪到投資。想要互動版《理財順序自檢・五個問題》的，這則底下留言「順序」👇\n\n【A・貼文有人留言「順序」】\n先公開回覆：「已私訊你了🔥」\n再私訊：\n來～這是你要的《理財順序自檢・五個問題》📊\nhttps://lifecapitalab.github.io/gift/2026-0829.html\n互動版的，五題點一遍就知道你卡在哪一關。卡住哪一題直接回我，我陪你算 😊\n\n【B・限動有人回「1」】\n看到你回 1 了👋 表格直接給你：\nhttps://lifecapitalab.github.io/gift/2026-0829.html\n順便問一下，你現在的錢大概幾成放在活存？我幫你看順序卡在哪。\n\n【C・投過票（都放活存🙋／有在投資💪）的人主動出擊】\n嘿，看到你投票了～你有算過自己每個月真正的結餘嗎？不是收入，是扣掉固定支出之後剩下的那個。我整理了一份五個問題，五分鐘算完，需要我傳給你嗎？\n\n【D・有人問「那我該買什麼」】\n這題我不會回答你，因為標的選擇因人而異，也不是我的執業範圍——真的要問，該問有證照的投顧。\n但我可以陪你把前面三關走完：結餘、預備金、風險。這三關過了，你自己就知道能拿多少錢去做決定 🙏\n\n【E・FB留言比例的人】\n公開回覆：「傳給你了✅」\n私訊：這是說好的《理財順序自檢・五個問題》：\nhttps://lifecapitalab.github.io/gift/2026-0829.html\n你剛留的比例我看到了，把每月固定支出跟我說，我幫你算預備金還差幾個月。\n\n【追蹤①・領完 24 小時後】\n昨天那五題有算嗎？多數人卡在第 1 題（講不出每月真正的結餘），這題最基礎但最少人算過，想聊隨時說 👍\n\n【追蹤②・對方有回覆互動】\n這種事講一次比想一年有用。要不要約 15 分鐘，我幫你把結餘、預備金、風險三塊攤開排一次順序？線上就好，不推銷。\n\n【追蹤③・已讀未回 3 天】\n不打擾你～表格收好就好。什麼時候想開始排順序了，隨時把數字丟過來 😊',
+caption:'聯準會主席說通膨還太高。那你放在活存的錢呢？\n\nWarsh 昨晚在 Jackson Hole 的首場演講講得很直接：通膨仍在 2% 目標之上，聯準會現在的首要焦點應該放在物價。最新的 PCE 年增率 3.7%，核心 3.3%。\n\n通膨黏著的意思是——這件事不是一年就過去。\n\n算給你看（固定通膨率下的算術，不是預測）：\n・年通膨 2%，100 萬放二十年，購買力剩 67 萬\n・年通膨 3.7%，剩 48 萬\n\n帳戶數字沒少，能買的東西少了。這不是投資的風險，是不理財的風險，而且它不會通知你。\n\n但我不會叫你「快去買點什麼」。\n\n因為大部分人理財的第一句話就問錯了——「我該買什麼？」買什麼是最後一步，前面還有三步沒做。順序錯了，你會在最不該賣的時候被迫賣掉，那才是真正虧錢的原因。\n\n順序是這樣（第 8 頁）：\n1️⃣ 算出每月真正的結餘，不是收入\n2️⃣ 預備金先填到 6 個月\n3️⃣ 把輸不起的部分框住\n4️⃣ 三年用不到的錢，才進場\n\n第 9 頁我把立場講清楚：公開場合我不會點名哪一檔、也不承諾報酬，因為對不特定多數人那樣講不負責任。但你願意坐下來把數字攤開，我們就能談到很具體的地方——順序是公開的，配置是看人的。\n\n留言「順序」，我私訊你互動版的五個問題，五分鐘算完 👇\n\n（引用公開報導整理觀念，非投資建議。）\n\n#理財 #通膨 #現金流 #預備金 #投資觀念 #第一桶金 #存錢 #人生資本',
+fb:'聯準會主席說通膨還太高。那你放在活存的錢呢？\n\n先講新聞。Kevin Warsh 昨晚在 Jackson Hole 發表上任後第一場主題演講，講得比很多人預期的直接。他說各種指標都指向同一件事：通膨仍在聯準會 2% 的目標之上，所以「聯準會現在的首要焦點應該放在物價」。市場把這段話讀成短期偏鷹，2 年期公債殖利率當場跳升約 8 個基點。最新的 PCE 年增率是 3.7%，核心 3.3%。\n\n通膨黏著的意思是——這件事不是撐一年就過去的。\n\n那它跟你有什麼關係？算給你看。以下是固定通膨率下的算術推估，不是對未來通膨的預測：\n\n・如果年通膨 2%（各國央行的目標值），100 萬放著不動二十年，購買力剩 67 萬。\n・如果年通膨 3.7%（美國最新 PCE 數字），剩 48 萬。\n\n你的帳戶數字一毛都沒少，但它能買到的東西少了一半。這不是投資的風險，是不理財的風險——而且它每年都在扣，帳單不會寄給你。\n\n但我不會就這樣叫你「快去買點什麼」。\n\n因為大部分人理財的第一句話就問錯了。多數人一開口是「我該買什麼？」——可是買什麼是最後一步，前面還有三步沒做。\n\n順序錯的代價，比選錯標的還大。原因很簡單：如果你沒有預備金，臨時要用錢的時候，你就得在最不該賣的時候賣掉。真正讓人虧錢的通常不是標的選錯，是被迫在低點離場。\n\n所以順序是這樣：\n\n一、算出每個月真正的結餘。不是你的收入，是收入減掉所有固定支出之後真的剩下的那個數字。多數人講不出來，這就是第一個問題。\n\n二、緊急預備金先填到六個月。這筆錢放活存就好，它的工作不是賺錢，是讓你不必在錯的時間點動用投資部位。\n\n三、把輸不起的部分框住。醫療、失能、意外這些一旦發生就會把計畫整個打斷的事，先處理掉。這一步不是為了保險而保險，是為了讓你的投資不會被一場意外中斷。\n\n四、三年內用不到的錢，才進場。房子頭期款、明年學費、婚禮基金——這些不算。只有真的三年以上用不到的錢，才等得起市場的來回。\n\n最後我把立場講清楚：\n\n在公開的貼文裡，我不會點名哪一檔、也不會承諾報酬。面對不特定多數人那樣講，是不負責任的。\n\n但如果你願意坐下來，把收入、支出、目標、還有你實際能承受多少波動攤開來看，那我們就能談到很具體的地方。順序是公開的，配置是看人的——這兩件事不衝突。\n\n留言「順序」，我把互動版《理財順序自檢・五個問題》傳給你，五分鐘就算得完 👇\n\n（本文引用公開報導整理觀念，非投資建議，亦不構成任何金融商品之推介；購買力換算為固定通膨率下的算術推估，非對未來通膨的預測。）',
+gift:'【📌 首則留言（發文後 10 秒內自己搶頭香）】\n幫大家劃重點：通膨是一筆你沒同意的扣款。年通膨 2%，100 萬放二十年剩 67 萬；3.7% 的話剩 48 萬。但別急著亂買——理財的順序是結餘、預備金、風險、才輪到投資。想要互動版《理財順序自檢・五個問題》的，這則底下留言「順序」👇\n\n【A・貼文有人留言「順序」】\n先公開回覆：「已私訊你了🔥」\n再私訊：\n來～這是你要的《理財順序自檢・五個問題》📊\nhttps://lifecapitalab.github.io/gift/2026-0829.html\n互動版的，五題點一遍就知道你卡在哪一關。卡住哪一題直接回我，我陪你算 😊\n\n【B・限動有人回「1」】\n看到你回 1 了👋 表格直接給你：\nhttps://lifecapitalab.github.io/gift/2026-0829.html\n順便問一下，你現在的錢大概幾成放在活存？我幫你看順序卡在哪。\n\n【C・投過票（都放活存🙋／有在投資💪）的人主動出擊】\n嘿，看到你投票了～你有算過自己每個月真正的結餘嗎？不是收入，是扣掉固定支出之後剩下的那個。我整理了一份五個問題，五分鐘算完，需要我傳給你嗎？\n\n【D・有人問「那我該買什麼」】\n在公開留言裡我不會喊單，那對其他看到的人不負責任 🙏\n但你如果願意把收入、支出、目標、能承受多少波動跟我說，我們約 15 分鐘聊，就能談到很具體的地方。順序是公開的，配置要看人。\n\n【E・FB留言比例的人】\n公開回覆：「傳給你了✅」\n私訊：這是說好的《理財順序自檢・五個問題》：\nhttps://lifecapitalab.github.io/gift/2026-0829.html\n你剛留的比例我看到了，把每月固定支出跟我說，我幫你算預備金還差幾個月。\n\n【追蹤①・領完 24 小時後】\n昨天那五題有算嗎？多數人卡在第 1 題（講不出每月真正的結餘），這題最基礎但最少人算過，想聊隨時說 👍\n\n【追蹤②・對方有回覆互動】\n這種事講一次比想一年有用。要不要約 15 分鐘，我幫你把結餘、預備金、風險三塊攤開排一次順序？線上就好，不推銷。\n\n【追蹤③・已讀未回 3 天】\n不打擾你～表格收好就好。什麼時候想開始排順序了，隨時把數字丟過來 😊',
 igStory:[
 {t:'hook',note:'蓋「投票貼紙」＋「貼文貼紙」連到今天的輪播・封面用滑手機看行情、記帳的側拍',kick:'今日時事',h:'你的錢<br>幾成躺在<em>活存</em>？',a:'都放活存 🙋',b:'有在投資 💪'},
 {t:'val',note:'可加「測驗貼紙」讓人猜',kick:'記住這 3 件事',h:'投資之前，先問這3題：',items:['每月真正的結餘是多少','預備金存到幾個月','這筆錢三年內用得到嗎'],hint:'截圖存起來，這週算一次'},
@@ -1331,40 +1328,42 @@ window.toggleHero=function(){
   render();
 };
 
-/* ── 主題背景圖庫：全部程式原創繪製，不會撞圖、無版權問題 ── */
+/* ── 版面美術：每一張依「文字排在哪」配對應構圖，視覺重量永遠落在文字沒佔的區域 ── */
 const ART={
- city:c=>`<g fill="${c.f}" stroke="${c.l}" stroke-width="1.2"><rect x="14" y="300" width="48" height="152"/><rect x="70" y="252" width="40" height="200"/><rect x="118" y="332" width="54" height="120"/><rect x="180" y="222" width="46" height="230"/><rect x="234" y="298" width="38" height="154"/><rect x="280" y="266" width="62" height="186"/></g><g fill="${c.l}"><rect x="24" y="318" width="8" height="10"/><rect x="42" y="318" width="8" height="10"/><rect x="80" y="270" width="8" height="10"/><rect x="96" y="270" width="8" height="10"/><rect x="190" y="242" width="8" height="10"/><rect x="208" y="242" width="8" height="10"/><rect x="292" y="286" width="8" height="10"/><rect x="312" y="286" width="8" height="10"/></g><path d="M0 300H360" stroke="${c.a}" stroke-width="2" opacity=".16"/>`,
- chart:c=>`<g stroke="${c.l}" stroke-width="1"><path d="M20 120H340M20 200H340M20 280H340M20 360H340"/></g><g fill="${c.f}"><rect x="52" y="360" width="28" height="72"/><rect x="108" y="332" width="28" height="100"/><rect x="164" y="376" width="28" height="56"/><rect x="220" y="312" width="28" height="120"/><rect x="276" y="276" width="28" height="156"/></g><polyline points="24,352 80,326 136,340 192,270 248,232 304,186 344,132" fill="none" stroke="${c.a}" stroke-width="3" opacity=".26" stroke-linejoin="round" stroke-linecap="round"/>`,
- clock:c=>`<circle cx="180" cy="230" r="134" fill="none" stroke="${c.l}" stroke-width="1.4"/><circle cx="180" cy="230" r="104" fill="none" stroke="${c.l}" stroke-width=".8"/>${Array.from({length:12},(_,k)=>{const a=k*Math.PI/6,x1=180+Math.sin(a)*134,y1=230-Math.cos(a)*134,x2=180+Math.sin(a)*119,y2=230-Math.cos(a)*119;return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${c.l}" stroke-width="2.4"/>`}).join('')}<line x1="180" y1="230" x2="180" y2="146" stroke="${c.a}" stroke-width="3.5" opacity=".26" stroke-linecap="round"/><line x1="180" y1="230" x2="250" y2="258" stroke="${c.a}" stroke-width="3.5" opacity=".26" stroke-linecap="round"/>`,
- grid:c=>{let g='';for(let x=0;x<7;x++)for(let y=0;y<9;y++){const cx=30+x*50,cy=32+y*48;g+=`<circle cx="${cx}" cy="${cy}" r="${(x+y)%4===0?4.5:2.4}" fill="${(x+y)%7===0?c.a:c.l}" opacity="${(x+y)%7===0?'.3':'1'}"/>`}return g+`<g stroke="${c.l}" stroke-width=".9" fill="none"><path d="M80 80L180 224L280 128M180 224L130 368M180 224L262 344"/></g>`},
- path:c=>`<g fill="none" stroke="${c.l}" stroke-width="2.4" stroke-linecap="round"><path d="M180 452V300"/><path d="M180 300C180 300 180 236 96 200C48 178 44 120 44 60"/><path d="M180 300C180 300 180 236 264 200C312 178 316 120 316 60"/></g><circle cx="180" cy="300" r="9" fill="${c.a}" opacity=".3"/><circle cx="44" cy="60" r="7" fill="${c.l}"/><circle cx="316" cy="60" r="7" fill="${c.l}"/><g stroke="${c.l}" stroke-width="1" stroke-dasharray="4 8"><path d="M0 300H180M180 300H360"/></g>`,
- shield:c=>`<path d="M180 66L296 112V240C296 322 244 372 180 400C116 372 64 322 64 240V112Z" fill="${c.f}" stroke="${c.l}" stroke-width="1.6"/><path d="M180 108L258 139V240C258 300 222 338 180 356C138 338 102 300 102 240V139Z" fill="none" stroke="${c.l}" stroke-width="1"/><path d="M144 236L172 266L222 200" fill="none" stroke="${c.a}" stroke-width="5" opacity=".28" stroke-linecap="round" stroke-linejoin="round"/>`,
- pulse:c=>`<g stroke="${c.l}" stroke-width="1"><path d="M0 150H360M0 230H360M0 310H360"/></g><polyline points="0,230 70,230 92,230 108,166 128,300 148,206 166,230 240,230 258,230 272,190 288,262 302,230 360,230" fill="none" stroke="${c.a}" stroke-width="3.4" opacity=".3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="128" cy="300" r="6" fill="${c.a}" opacity=".26"/>`,
- stack:c=>`<g fill="${c.f}" stroke="${c.l}" stroke-width="1.4"><rect x="66" y="352" width="228" height="60" rx="6"/><rect x="90" y="276" width="180" height="60" rx="6"/><rect x="114" y="200" width="132" height="60" rx="6"/><rect x="138" y="124" width="84" height="60" rx="6"/></g><circle cx="180" cy="76" r="20" fill="none" stroke="${c.a}" stroke-width="2.6" opacity=".28"/>`,
- dots:c=>{let g='';const R=[6,7,8,7,6];R.forEach((n,r)=>{for(let i=0;i<n;i++){const x=180+(i-(n-1)/2)*48,y=140+r*62;const hl=(r===2&&i===3);g+=`<circle cx="${x}" cy="${y-16}" r="11" fill="${hl?c.a:c.l}" opacity="${hl?'.3':'1'}"/><path d="M${x-15} ${y+22}c0-16 6-24 15-24s15 8 15 24z" fill="${hl?c.a:c.f}" opacity="${hl?'.3':'1'}"/>`}});return g},
- wave:c=>`<g fill="none" stroke="${c.l}" stroke-width="1.6">${Array.from({length:7},(_,k)=>`<circle cx="180" cy="228" r="${34+k*32}"/>`).join('')}</g><circle cx="180" cy="228" r="16" fill="${c.a}" opacity=".26"/>`
+ arcTR:c=>`<circle cx="392" cy="-46" r="252" fill="${c.f}"/><circle cx="392" cy="-46" r="252" fill="none" stroke="${c.l}" stroke-width="1"/><circle cx="392" cy="-46" r="198" fill="none" stroke="${c.l}" stroke-width="1"/><circle cx="392" cy="-46" r="144" fill="none" stroke="${c.l}" stroke-width="1"/>`,
+ arcBL:c=>`<circle cx="-46" cy="500" r="252" fill="${c.f}"/><circle cx="-46" cy="500" r="252" fill="none" stroke="${c.l}" stroke-width="1"/><circle cx="-46" cy="500" r="198" fill="none" stroke="${c.l}" stroke-width="1"/><circle cx="-46" cy="500" r="144" fill="none" stroke="${c.l}" stroke-width="1"/>`,
+ bandB:c=>`<rect x="0" y="312" width="360" height="138" fill="${c.f}"/><path d="M0 312H360" stroke="${c.a}" stroke-width="2.4" opacity=".2"/><path d="M0 358H360M0 404H360" stroke="${c.l}" stroke-width="1"/><rect x="28" y="336" width="46" height="46" fill="${c.a}" opacity=".13"/>`,
+ bandT:c=>`<rect x="0" y="0" width="360" height="132" fill="${c.f}"/><path d="M0 132H360" stroke="${c.a}" stroke-width="2.4" opacity=".2"/><path d="M0 46H360M0 90H360" stroke="${c.l}" stroke-width="1"/><rect x="286" y="46" width="46" height="46" fill="${c.a}" opacity=".13"/>`,
+ bandR:c=>`<rect x="234" y="0" width="126" height="450" fill="${c.f}"/><path d="M234 0V450" stroke="${c.a}" stroke-width="2.4" opacity=".2"/><path d="M278 0V450M322 0V450" stroke="${c.l}" stroke-width="1"/>`,
+ frame:c=>`<rect x="19" y="19" width="322" height="412" fill="none" stroke="${c.l}" stroke-width="1.3"/><rect x="19" y="19" width="58" height="58" fill="${c.f}"/><rect x="283" y="373" width="58" height="58" fill="${c.f}"/><circle cx="341" cy="19" r="5.5" fill="${c.a}" opacity=".3"/><circle cx="19" cy="431" r="5.5" fill="${c.a}" opacity=".3"/>`,
+ curve:c=>`<path d="M-24 476C96 476 126 296 206 214C266 152 326 116 386 90" fill="none" stroke="${c.a}" stroke-width="46" opacity=".075" stroke-linecap="round"/><path d="M-24 476C96 476 126 296 206 214C266 152 326 116 386 90" fill="none" stroke="${c.l}" stroke-width="1.3"/>`,
+ rays:c=>`<circle cx="366" cy="-6" r="86" fill="${c.f}"/>${Array.from({length:8},(_,k)=>`<line x1="366" y1="-6" x2="${318-k*52}" y2="456" stroke="${c.l}" stroke-width="1"/>`).join('')}`,
+ dotGrid:c=>{let g='';for(let x=0;x<9;x++)for(let y=0;y<11;y++)g+=`<circle cx="${20+x*40}" cy="${26+y*40}" r="1.9" fill="${c.l}"/>`;return `<circle cx="306" cy="98" r="52" fill="${c.f}"/>`+g},
+ corner:c=>`<path d="M360 0V196L172 0Z" fill="${c.f}"/><path d="M0 450V296L152 450Z" fill="${c.f}"/><path d="M172 0H360" stroke="${c.a}" stroke-width="2.2" opacity=".22"/><path d="M0 296V450" stroke="${c.a}" stroke-width="2.2" opacity=".22"/>`,
+ slab:c=>`<rect x="0" y="0" width="146" height="450" fill="${c.f}"/><path d="M146 0V450" stroke="${c.a}" stroke-width="2.4" opacity=".2"/><rect x="34" y="46" width="78" height="78" fill="${c.a}" opacity=".12"/><path d="M34 168H112M34 210H112M34 252H112" stroke="${c.l}" stroke-width="1.4"/>`
 };
-const ART_KEYS=Object.keys(ART);
-const ART_NAME={city:'城市',chart:'圖表',clock:'時間',grid:'網絡',path:'岔路',shield:'盾牌',pulse:'心跳',stack:'堆疊',dots:'人群',wave:'波紋'};
-const ART_MATCH=[[/房貸|房子|買房|首購|租房|建案|貨架|標價/,'city'],[/利率|升息|降息|殖利率|股價|漲|跌|%|報酬/,'chart'],[/年期|幾年|幾歲|退休|長照|老後|時間|等待|寬限/,'clock'],[/分散|配置|資產|市場|依賴|來源|網/,'grid'],[/選擇|兩種|對比|決定|路|簽法|要不要/,'path'],[/保障|保險|保單|理賠|風險|缺口|守/,'shield'],[/醫療|癌|病|健康|手術|藥|疫苗|失能/,'pulse'],[/現金流|預備金|存|桶|錢|月付|支出|收入/,'stack'],[/家庭|雙薪|客戶|照顧|人群|大家|多數人/,'dots']];
+const ART_NAME={arcTR:'右上弧',arcBL:'左下弧',bandB:'下色帶',bandT:'上色帶',bandR:'右色帶',frame:'外框',curve:'曲線',rays:'放射',dotGrid:'點陣',corner:'雙角',slab:'左色塊'};
+/* 沒有指定時的預設：依文字排在哪，把視覺推到另一側 */
 function artFor(s){
-  if(s.art)return s.art;
-  const t=JSON.stringify(s).replace(/"_[^"]*":"[^"]*",?/g,'');
-  for(const [re,k] of ART_MATCH){ if(re.test(t)) return k }
-  return 'wave';
+  if(s.art) return s.art;
+  if(s.t==='st'){ const p=s._pos||'top'; return p==='top'?'bandB':(p==='low'?'bandT':'frame'); }
+  if(s.t==='q') return 'frame';
+  if(s.t==='stat') return 'rays';
+  if(s.t==='bars') return 'arcTR';
+  if(s.t==='ls') return 'corner';
+  if(s.t==='cmp') return 'arcTR';
+  if(s.t==='dlg') return 'dotGrid';
+  if(s.t==='smile') return 'arcBL';
+  return 'arcTR';
 }
 function artColors(dark){
   const ac=(getComputedStyle(document.body).getPropertyValue('--accent')||'#BF5237').trim();
-  return dark?{l:'rgba(255,255,255,.15)',f:'rgba(255,255,255,.05)',a:ac}:{l:'rgba(42,36,30,.115)',f:'rgba(42,36,30,.045)',a:ac};
+  return dark?{l:'rgba(255,255,255,.13)',f:'rgba(255,255,255,.045)',a:ac}:{l:'rgba(42,36,30,.10)',f:'rgba(42,36,30,.04)',a:ac};
 }
-function artLayer(s,kind,i){
-  const k=artFor(s), c=artColors(!!s._dark);
-  return `<div class="artbg"><svg viewBox="0 0 360 450" xmlns="http://www.w3.org/2000/svg">${ART[k](c)}</svg></div><button class="artbtn" title="換一張主題底圖（${ART_NAME[k]}）" onclick="cycleArt('${kind}',${i})">🎨 ${ART_NAME[k]}</button>`;
+function artLayer(s){
+  const k=artFor(s), f=ART[k]||ART.arcTR, c=artColors(!!s._dark);
+  return `<div class="artbg"><svg viewBox="0 0 360 450" xmlns="http://www.w3.org/2000/svg">${f(c)}</svg></div>`;
 }
-window.cycleArt=function(kind,i){
-  const p=ALLP()[cur], arr=(kind==='ig'?p.ig:p.fbCards); const s=arr&&arr[i]; if(!s)return;
-  const now=artFor(s); s.art=ART_KEYS[(ART_KEYS.indexOf(now)+1)%ART_KEYS.length]; render();
-};
 
 function slideHTML(s,i,n,kind){
   const E='contenteditable="true" spellcheck="false"';
@@ -1413,7 +1412,7 @@ function slideHTML(s,i,n,kind){
   else if(s.t==='bars') inner=`<div class="s-bars">${wm()}<div class="kk" ${E}>${s.kk||''}</div><h4 ${E}>${s.h4}</h4>${s.bars.map((b,k)=>`<div class="brow ${k%2?'alt':''}"><div class="bl" ${E}>${b.label}</div><div class="track"><div class="fill" style="width:${b.pct}%" ${E}>${b.val}</div></div></div>`).join('')}${s.note?`<div class="note" ${E}>${s.note}</div>`:''}<div class="src" ${E}>${s.src||''}</div>${dots(i,n)}</div>`;
   else if(s.t==='smile') inner=`<div class="s-sm">${wm()}<div class="kk" ${E}>${s.kk||''}</div><h4 ${E}>${s.h4||''}</h4><div class="arcbox"><div class="arc"></div><div class="lbl" style="left:4px;top:-24px" ${E}>高價開始扣 😐</div><div class="lbl" style="left:50%;transform:translateX(-50%);bottom:-8px;color:var(--accent)" ${E}>下跌＝便宜補貨區 😋</div><div class="lbl" style="right:4px;top:-24px" ${E}>回升收割 🎉</div></div><div class="bd" ${E}>${s.bd||''}</div>${dots(i,n)}</div>`;
   else if(s.t==='end') inner=`<div class="s-end">${photoSlot()}<div class="scrim"></div><div class="eb"><div class="thx" ${E}>看到這裡，謝謝你</div><div class="q" ${E}>${s.q}</div><div class="sub2" ${E}>${s.sub2||''}</div><div class="acts"><span>💬留言</span><span>🔖收藏</span><span>✈️分享</span></div></div><div class="fol" ${E} data-fol>${folTxt()}</div>${dots(i,n,true)}</div>`;
-  if(s.t!=='cover'&&s.t!=='end'&&kind&&!(s._hero&&heroActive())) inner=inner.replace('>','>'+artLayer(s,kind,i)); /* 內頁鋪主題底圖；已鋪真人照片的那張就不重疊 */
+  if(s.t!=='cover'&&s.t!=='end'&&!(s._hero&&heroActive())) inner=inner.replace('>','>'+artLayer(s)); /* 依這張的文字排版配對應構圖 */
   if(s._hero&&heroActive()) inner=inner.replace('>','>'+heroLayer()); /* 插進版型根層第一位，文字自動浮在上面 */
   return inner;
 }
@@ -1653,12 +1652,8 @@ function dlCanvas(canvas,name){
 }
 async function shoot(kind,i){
   const el=document.getElementById(kind+'sl'+i);
-  const btns=el.querySelectorAll('.artbtn');
-  btns.forEach(b=>b.style.display='none');
-  try{
     const canvas=await html2canvas(el,{scale:3,useCORS:true,backgroundColor:(getComputedStyle(document.body).getPropertyValue('--bg')||'#F6F0E4').trim()});
-    await dlCanvas(canvas,`${ALLP()[cur].id}_${kind.toUpperCase()}_${i+1}.png`);
-  }finally{btns.forEach(b=>b.style.display='')}
+  await dlCanvas(canvas,`${ALLP()[cur].id}_${kind.toUpperCase()}_${i+1}.png`);
 }
 window.dlOne=(kind,i)=>shoot(kind,i).catch(e=>alert('下載失敗：'+e.message));
 window.dlAll=async kind=>{const pp=ALLP()[cur];const arr=kind==='ig'?pp.ig:pp.fbCards;for(let i=0;i<arr.length;i++){await shoot(kind,i);await new Promise(r=>setTimeout(r,600));}};
